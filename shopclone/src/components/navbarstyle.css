@@ -1,0 +1,32 @@
+.carousel .carousel-item>img {
+    width:300%;
+    height: 160%; 
+    margin-left: -100%;
+}
+
+.Mainlogo {
+    margin-left: 10px;
+    width: 100px;
+    padding: 7px;
+}
+
+.Signin {
+    top: 10px;
+    width: 40px;
+}
+
+.dropdown-content {
+    top: -60px;
+    min-width: 180px;
+    color: black;
+    position: right;
+}
+
+.dropdown-trigger .btn {
+    right: 0px;
+}
+
+.input-field {
+    left: -100%;
+    width: 200%;
+}
