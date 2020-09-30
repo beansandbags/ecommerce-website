@@ -24,8 +24,8 @@ class navbar extends Component {
             <nav>
                 <div class="nav-wrapper green darken-3">
 
-                    <a href="/"><img className="Mainlogo" src={Logo}/></a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <a href="/"><img className="Mainlogo" src={Logo}/></a>
                         <i class="material-icons">menu</i>
                     </a>      
 
@@ -33,16 +33,18 @@ class navbar extends Component {
                         <img className="Signin brand-logo right" src={Signin}/>
                     </a>
 
-                    <ul class="right hide-on-med-and-down">
-                        <li>
-                            <form>
-                                <div class="input-field">
-                                    <input id="search" type="search" required/>
-                                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                    <i class="material-icons">close</i>
-                                </div>
-                            </form>   
-                        </li>
+                    <a class='right'>
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required/>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>  
+                    </a>
+
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="/"><img className="Mainlogo" src={Logo}/></a></li>
                         <li><a href="/">Home</a></li>
                         <li><a href="" class='dropdown-trigger' data-target='dropdown2'>Drinks</a></li>
                         <li><a href="/chocolate">Chocolate</a></li>
