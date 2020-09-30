@@ -24,16 +24,18 @@ class navbar extends Component {
             <nav>
                 <div class="nav-wrapper green darken-3">
 
+
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                    <a href="/"><img className="Mainlogo" src={Logo}/></a>
                         <i class="material-icons">menu</i>
+                        <img className="Mainlogo" src={Logo}/>
                     </a>      
 
+                    
                     <a class='right dropdown-trigger' href='' data-target='dropdown1'>
                         <img className="Signin brand-logo right" src={Signin}/>
                     </a>
 
-                    <a class='right'>
+                    <a class='right hide-on-med-and-down'>
                     <form>
                         <div class="input-field">
                             <input id="search" type="search" required/>
