@@ -27,8 +27,8 @@
 }
 
 .input-field {
-    left: -200%;
-    width: 250%;
+    left: -120%;
+    width: 180%;
 }
 
 .input-field input[type=search]{ height: 64px !important; }

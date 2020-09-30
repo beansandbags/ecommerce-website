@@ -27,8 +27,11 @@ class navbar extends Component {
 
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                         <i class="material-icons">menu</i>
-                        <img className="Mainlogo" src={Logo}/>
                     </a>      
+
+                    <a href="/" data-target="mobile-demo" class="sidenav-trigger">
+                        <img className="Mainlogo" src={Logo}/>
+                    </a>
 
                     
                     <a class='right dropdown-trigger' href='' data-target='dropdown1'>
