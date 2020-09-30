@@ -30,3 +30,5 @@
     left: -100%;
     width: 200%;
 }
+
+.input-field input[type=search]{ height: 64px !important; }
