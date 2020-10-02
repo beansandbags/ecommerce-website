@@ -1,7 +1,25 @@
+.carousel3 .carousel .carousel-item>img {
+    width: 100%;
+    height: 80%; 
+    margin-left: 10%;
+}
+
+.carousel2 .carousel .carousel-item>img {
+    width: 100%;
+    height: 80%; 
+    margin-left: 10%;
+}
+
+.carousel1 .carousel .carousel-item>img {
+    width: 100%;
+    height: 80%; 
+    margin-left: 10%;
+}
+
 .carousel .carousel-item>img {
-    width:300%;
-    height: 160%; 
-    margin-left: -100%;
+    width: 350%;
+    height: 140%; 
+    margin-left: -125%;
 }
 
 .Mainlogo {
@@ -32,3 +50,15 @@
 }
 
 .input-field input[type=search]{ height: 64px !important; }
+
+.card {
+    width: 100%;
+    height: 200px;
+    background: black;
+    color: white;
+    font-size: 30px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
