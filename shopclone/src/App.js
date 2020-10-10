@@ -7,6 +7,7 @@ import Accessories from './components/accessories'
 import Account from './components/account'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
+import Product from './components/products'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/chocolate' component={Chocolate} />
           <Route path='/accessories' component={Accessories} />
           <Route path='/account' component={Account} />
+          <Route path='/product' component={Product} />
           <Footer />
         </div>
       </BrowserRouter>
