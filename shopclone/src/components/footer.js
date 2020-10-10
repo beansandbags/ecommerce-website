@@ -24,7 +24,6 @@ class footer extends Component {
                     <li><a class="grey-text text-lighten-3" href="/tea">Tea</a></li>
                     <li><a class="grey-text text-lighten-3" href="/coffee">Coffee</a></li>
                     <li><a class="grey-text text-lighten-3" href="/chocolate">Chocolates</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/accessories">Accessories</a></li>
                   </ul>
                 </div>
               </div>
