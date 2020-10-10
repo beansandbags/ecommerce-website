@@ -31,12 +31,7 @@ class footer extends Component {
             </div>
             <div class="footer-copyright">
               <div class="container">
-              © 2020 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">
-                <img className="right icons" src={linkedin}></img>
-                <img className="right icons" src={insta}></img>
-                <img className="right icons" src={ghub}></img>
-              </a>
+              <a className="black-text" href="#">© 2020 Copyright Text</a>
               </div>
             </div>
           </footer>
