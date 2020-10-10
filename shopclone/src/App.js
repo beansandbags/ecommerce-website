@@ -7,6 +7,7 @@ import Account from './components/account'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Products from './components/products'
+import IProduct from './components/iproduct'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/chocolate' component={Chocolate} />
           <Route path='/account' component={Account} />
           <Route path='/products' component={Products} />
+          <Route path='/product' component={IProduct} />
           <Footer />
         </div>
       </BrowserRouter>
