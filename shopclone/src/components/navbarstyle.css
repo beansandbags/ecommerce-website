@@ -51,34 +51,28 @@
 
 .input-field input[type=search]{ height: 64px !important; }
 
-.card {
-    width: 100%;
-    height: 200px;
-    background: black;
-    color: white;
-    font-size: 30px;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+    height: 100vh;
+    border: 20px solid rgb(255,255,255);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .card {
     width: 30%;
     height: 250px;
-    background: grey; 
+    background: pink; /*Change this back to grey if you wish */
     font-size: 18px;
 }
 
-.custom-align .card {
-    display: flex;
-    flex-direction: column;
-}
-  
+
 .custom-align .card-content {
     flex: 1;
     max-height: 100%;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     margin-bottom: 50px;
 }
