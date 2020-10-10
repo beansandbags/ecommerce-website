@@ -11,7 +11,7 @@ class footer extends Component {
     render() {
         return (
             <footer class="page-footer green darken-3">
-            <div class="container">
+            <div class="display-container">
               <div class="row">
                 <div class="col l6 s12">
                   <h5 class="white-text">BeansAndBags</h5>
@@ -30,7 +30,7 @@ class footer extends Component {
               </div>
             </div>
             <div class="footer-copyright">
-              <div class="container">
+              <div class="display-container">
               <a className="black-text" href="#">© 2020 Copyright Text</a>
               </div>
             </div>

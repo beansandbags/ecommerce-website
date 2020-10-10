@@ -50,10 +50,9 @@ class navbar extends Component {
 
                     <ul class="left hide-on-med-and-down">
                         <li><a href="/"><img className="Mainlogo" src={Logo}/></a></li>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="" class='dropdown-trigger' data-target='dropdown2'>Drinks</a></li>
+                        <li><a href="/tea">Tea</a></li>
+                        <li><a href="/coffee">Coffee</a></li>
                         <li><a href="/chocolate">Chocolate</a></li>
-                        <li><a href="/accessories">Accessories</a></li>
                         <li><a href=""></a></li>
                         <li><a href=""></a></li>
                     </ul>
@@ -61,10 +60,9 @@ class navbar extends Component {
                 </div>
 
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="/">Home</a></li>
-                <li><a href="/drinks">Drinks</a></li>
+                <li><a href="/tea">Tea</a></li>
+                <li><a href="/coffee">Coffee</a></li>
                 <li><a href="/chocolate">Chocolate</a></li>
-                <li><a href="/accessories">Accessories</a></li>
             </ul>
 
             <ul id='dropdown1' class='dropdown-content'>
@@ -76,12 +74,6 @@ class navbar extends Component {
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">Orders and Returns</a></li>
                 <li class="divider" tabindex="-1"></li>
-            </ul>
-
-            <ul id='dropdown2' class='dropdown-content'>
-                <li><a href="/tea">Tea</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="/coffee">Coffee</a></li>
             </ul>
 
         </nav>
