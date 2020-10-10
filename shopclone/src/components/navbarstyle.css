@@ -23,7 +23,7 @@
 }
 
 .Mainlogo {
-    margin-left: 10px;
+    border: 1px;
     width: 100px;
     padding: 7px;
 }
@@ -52,9 +52,10 @@
 .input-field input[type=search]{ height: 64px !important; }
 
 .container {
+    width: 100%;
     height: 100vh;
     border: 20px solid rgb(255,255,255);
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -73,7 +74,6 @@
     flex: 1;
     max-height: 100%;
     align-items: flex-start;
-    display: flex;
     margin-bottom: 50px;
 }
 

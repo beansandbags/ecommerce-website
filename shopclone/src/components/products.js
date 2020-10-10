@@ -2,7 +2,7 @@ import React from 'react';
 import sky from '../sky.png';
 import './navbarstyle.css';
 
-const product = () => {
+const Products = () => {
     return (
       <div class="container">
         <div class="card small sticky-action">
@@ -83,9 +83,9 @@ const product = () => {
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>Card Title</span>
             <p>Here is some more information about this product that is only revealed once clicked on.</p>
           </div>
-        </div>                                
-      </div>
+        </div>        
+     </div>
     )
 }
 
-export default product
+export default Products

@@ -54,12 +54,6 @@ class home extends Component {
                 <a class="carousel-item" href="#one!"><img src={sky} /></a>
                 <a class="carousel-item" href="#two!"><img src={sky} /></a>
                 <a class="carousel-item" href="#three!"><img src={sky} /></a>
-                <a class="carousel-item" href="#four!"><img src={sky} /></a>
-                <a class="carousel-item" href="#five!"><img src={sky} /></a>
-                <a class="carousel-item" href="#six!"><img src={sky} /></a>
-                <a class="carousel-item" href="#seven!"><img src={sky} /></a>
-                <a class="carousel-item" href="#eight!"><img src={sky} /></a>
-                <a class="carousel-item" href="#nine!"><img src={sky} /></a>
             </div>
                         
             <h3>Featured Products</h3>
