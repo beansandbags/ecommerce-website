@@ -1,19 +1,29 @@
-.carousel3 .carousel .carousel-item>img {
-    width: 100%;
-    height: 80%; 
-    margin-left: 10%;
+html {
+    box-sizing: border-box;
 }
 
-.carousel2 .carousel .carousel-item>img {
-    width: 100%;
-    height: 80%; 
-    margin-left: 10%;
+body{
+    font: Helvetica;
+    height: 100vh;
+    margin: 0;
+    background: #ffe1a8;
 }
 
-.carousel1 .carousel .carousel-item>img {
-    width: 100%;
-    height: 80%; 
-    margin-left: 10%;
+.mainnav {
+    color: #ffe1a8;
+    font-size: 2rem;
+}
+
+.navbar {
+    background: #723d46;
+}
+
+.footer {
+    background: #723d46;
+}
+
+.footer .content {
+    margin-left: 20px;
 }
 
 .carousel .carousel-item>img {
@@ -51,25 +61,12 @@
 
 .input-field input[type=search]{ height: 64px !important; }
 
-.container {
-    width: 100%;
-    height: 100vh;
-    border: 20px solid rgb(255,255,255);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
 .card {
     width: 30%;
     height: 250px;
     background: pink; /*Change this back to grey if you wish */
     font-size: 18px;
 }
-
-
 .custom-align .card-content {
     flex: 1;
     max-height: 100%;
@@ -80,3 +77,63 @@
 .reveal {
     color: black;
 }
+
+.products {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.products li{
+    list-style-type: none;
+    flex: 0 30rem;
+    padding: 0;
+    margin: 1rem;
+    height: 25rem;
+    border-bottom: .1rem #c0c0 solid;
+}
+
+.product {
+    display: flex;
+    margin-left: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-name a{
+    font-size: 1.5rem;
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.product-name a:hover{
+    color: #723d46;
+}
+
+.product-brand {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: black;
+}
+
+.product-price {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-image {
+    max-width: 25rem;
+    max-height: 25rem;
+}
+
+.product-rating {
+    margin-left: 10px;
+    margin-bottom: 5rem;
+}
+

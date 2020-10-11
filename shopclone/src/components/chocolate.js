@@ -2,7 +2,7 @@ import React from 'react';
 
 const chocolate = () => {
     return (
-        <div className="container">
+        <div className="grid-container">
             <h4 className="center">
                 Hello. this is the chocolate page
             </h4>

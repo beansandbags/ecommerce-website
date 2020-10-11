@@ -22,33 +22,37 @@ class navbar extends Component {
     render() {
         return (
             <nav>
-                <div class="nav-wrapper green darken-3">
+                <div className="nav-wrapper navbar">
 
 
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                        <i class="material-icons">menu</i>
+                    <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+                        <i className="material-icons">menu</i>
                     </a>      
 
-                    <a href="/" data-target="mobile-demo" class="sidenav-trigger">
+                    <a href="/" data-target="mobile-demo" className="sidenav-trigger">
                         <img className="Mainlogo" src={Logo}/>
                     </a>
 
-                    
-                    <a class='right dropdown-trigger' href='' data-target='dropdown1'>
-                        <img className="Signin brand-logo right" src={Signin}/>
-                    </a>
+                    <ul className='right'>
+                        <li><a className='cart'>Cart</a></li>
+                        <li><a href=""></a></li>
+                        <li><a className='dropdown-trigger' href='' data-target='dropdown1'>
+                        <img className="Signin brand-logo right" src={Signin}/> </a></li>
+                    </ul>
 
-                    <a class='right hide-on-med-and-down'>
+                    
+
+                    <a className='right hide-on-med-and-down'>
                     <form>
-                        <div class="input-field">
+                        <div className="input-field">
                             <input id="search" type="search" required/>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                            <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+                            <i className="material-icons">close</i>
                         </div>
                     </form>  
                     </a>
 
-                    <ul class="left hide-on-med-and-down">
+                    <ul className="mainnav left hide-on-med-and-down">
                         <li><a href="/"><img className="Mainlogo" src={Logo}/></a></li>
                         <li><a href="/tea">Tea</a></li>
                         <li><a href="/coffee">Coffee</a></li>
@@ -59,21 +63,21 @@ class navbar extends Component {
                         
                 </div>
 
-            <ul class="sidenav" id="mobile-demo">
+            <ul className="sidenav" id="mobile-demo">
                 <li><a href="/tea">Tea</a></li>
                 <li><a href="/coffee">Coffee</a></li>
                 <li><a href="/chocolate">Chocolate</a></li>
             </ul>
 
-            <ul id='dropdown1' class='dropdown-content'>
+            <ul id='dropdown1' className='dropdown-content'>
                 <li><a href="/account">Your Account</a></li>
-                <li class="divider" tabindex="-1"></li>
+                <li className="divider" tabindex="-1"></li>
                 <li><a href="#!">Your Order</a></li>
-                <li class="divider" tabindex="-1"></li>
+                <li className="divider" tabindex="-1"></li>
                 <li><a href="#!">Your Wishlist</a></li>
-                <li class="divider" tabindex="-1"></li>
+                <li className="divider" tabindex="-1"></li>
                 <li><a href="#!">Orders and Returns</a></li>
-                <li class="divider" tabindex="-1"></li>
+                <li className="divider" tabindex="-1"></li>
             </ul>
 
         </nav>
