@@ -3,17 +3,10 @@ import sky from '../sky.png'
 import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
+import {Link} from 'react-router-dom'
 
 class home extends Component {
-
-    openMenu = () => {
-        document.querySelector(".sidebar").classList.add("open");
-    }
-    closeMenu = () => {
-        document.querySelector(".sidebar").classList.remove("open")
-    }
-    
-    componentDidMount() {
+   componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems, {
@@ -40,9 +33,11 @@ class home extends Component {
                         {
                             data.products.map(product =>
                                 <li><div className="product">
-                                    <img className="product-image" src={product.image} alt="" />
+                                    <Link to={'/product/' + product._id}>
+                                        <img className="product-image" src={product.image} alt="" />
+                                    </Link>
                                     <div className="product-name">
-                                        <a href="product.html">{product.name}</a>
+                                        <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>

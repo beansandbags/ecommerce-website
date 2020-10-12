@@ -137,3 +137,49 @@ body{
     margin-bottom: 5rem;
 }
 
+.details {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.details-image {
+    margin-left: 100px;
+    flex: 2 1 50rem;
+}
+
+.details-image img{
+    max-width: 50rem;
+}
+
+.details-info {
+    margin: 0;
+    margin-right: 0px;
+    flex: 1 1 40rem;
+}
+
+.details-description {
+    list-style-type: none;
+    margin-left: 100px;
+    margin-bottom: 2rem;
+}
+
+.details-info button{
+    padding: 7px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 120px;
+    color: white;
+    background-color: #723d46;
+    border: .1rem black solid;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.details-info li{
+    margin-bottom: 1rem;
+}
