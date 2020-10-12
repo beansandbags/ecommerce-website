@@ -3,12 +3,16 @@ const Schema = mongoose.Schema;
 
 const TransactionSchema = new Schema({
     userID: {
-        type: String,
+        type: ObjectId,
         required: true
     },
     productID: {
-        type: [String],
+        type: [ObjectId],
         required: true
+    },
+    quantity: {
+        type: [Number],
+        required: true,
     },
     date: {
         type: Date,

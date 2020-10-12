@@ -39,10 +39,32 @@ const UserSchema = new Schema({
         type: [String],
         required: true
     },
+    
+    //Cart Implementation 1
     cart: {
         type: [ObjectId],
         default: [null]
     },
+    quantity: {
+        type: [Number],
+        default: [null]
+    },
+
+    //Cart Implementation 2
+    cart2: {
+        type: [{
+            productID: {
+                type: ObjectId,
+                required: true
+            },
+            quantity: {
+                type: Number,
+                required: true,
+                default: 1
+            }
+        }]
+    },
+
     wishlist: {
         type: [ObjectId],
         default: [null]
