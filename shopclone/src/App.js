@@ -8,6 +8,7 @@ import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Products from './components/products'
 import ProductScreen from './components/productscreen'
+import signin from './components/signin'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path='/coffee' component={Coffee} />
           <Route path='/chocolate' component={Chocolate} />
           <Route path='/account' component={Account} />
+          <Route path='/signin' component= {signin} />
           <Footer />
         </div>
       </BrowserRouter>

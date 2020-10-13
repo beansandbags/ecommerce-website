@@ -72,8 +72,6 @@ class navbar extends Component {
             <ul id='dropdown1' className='dropdown-content'>
                 <li><a href="/account">Your Account</a></li>
                 <li className="divider" tabindex="-1"></li>
-                <li><a href="#!">Your Order</a></li>
-                <li className="divider" tabindex="-1"></li>
                 <li><a href="#!">Your Wishlist</a></li>
                 <li className="divider" tabindex="-1"></li>
                 <li><a href="#!">Orders and Returns</a></li>

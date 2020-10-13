@@ -183,3 +183,21 @@ body{
 .details-info li{
     margin-bottom: 1rem;
 }
+
+.signin {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    background: white;
+    padding: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    border: .1rem black solid;
+}
+
+.enter {
+    border: .1rem black solid;
+}
