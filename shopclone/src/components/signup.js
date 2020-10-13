@@ -16,6 +16,7 @@ class login extends Component {
                 <input type="text" ></input>
                 <label>Enter Address</label>
                 <input type="text" ></input>
+                <button className="join">Create Account</button>
             </form>
     
         )

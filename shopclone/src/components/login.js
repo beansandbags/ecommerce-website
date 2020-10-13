@@ -12,6 +12,7 @@ class signin extends Component {
                 <input type="text" className="enter"></input> 
                 <label>Enter Password</label>
                 <input type="text" ></input>
+                <button className="join">Log In</button>
             </form>
     
         )

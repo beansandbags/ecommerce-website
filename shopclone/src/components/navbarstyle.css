@@ -201,3 +201,14 @@ body{
 .enter {
     border: .1rem black solid;
 }
+
+.join {
+    padding: 7px;
+    margin-left: 40%;
+    color: white;
+    background-color: #723d46;
+    border: .1rem black solid;
+    border-radius: .4rem;
+    cursor: pointer;
+    width: 120px;
+}
