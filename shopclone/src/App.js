@@ -8,7 +8,8 @@ import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Products from './components/products'
 import ProductScreen from './components/productscreen'
-import signin from './components/signin'
+import signin from './components/login'
+import signup from './components/signup'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path='/chocolate' component={Chocolate} />
           <Route path='/account' component={Account} />
           <Route path='/signin' component= {signin} />
+          <Route path='/signup' component= {signup} />
           <Footer />
         </div>
       </BrowserRouter>
