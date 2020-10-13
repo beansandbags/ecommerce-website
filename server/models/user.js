@@ -45,25 +45,6 @@ const UserSchema = new Schema({
         type: [ObjectId],
         default: [null]
     },
-    quantity: {
-        type: [Number],
-        default: [null]
-    },
-
-    //Cart Implementation 2
-    cart2: {
-        type: [{
-            productID: {
-                type: ObjectId,
-                required: true
-            },
-            quantity: {
-                type: Number,
-                required: true,
-                default: 1
-            }
-        }]
-    },
 
     wishlist: {
         type: [ObjectId],
