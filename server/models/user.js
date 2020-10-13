@@ -42,22 +42,22 @@ const UserSchema = new Schema({
     
     //Cart Implementation 1
     cart: {
-        type: [ObjectId],
+        type: [String],
         default: [null]
     },
 
     wishlist: {
-        type: [ObjectId],
+        type: [String],
         default: [null]
     },
     purchase_h: {
         // Purchase History
-        type: [ObjectId],
+        type: [String],
         default: [null]
     },
     comments: {
         // Comment record
-        type: [ObjectId],
+        type: [String],
         default: [null]
     },
     third_party_auth: [ThirdPartyProviderSchema],

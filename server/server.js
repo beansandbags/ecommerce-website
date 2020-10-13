@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
+const cors = require("cors");
+
 
 const passport = require('./passport/setup');
 const auth = require('./routes/api/auth');
@@ -10,7 +13,11 @@ const products = require('./routes/api/products');
 
 const app = express();
 
+app.use(cors());
+
 mongoose.Promise = global.Promise;
+
+mongoose.set('useCreateIndex', true);
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
@@ -35,13 +42,13 @@ const db = require('./config/keys').mongoURI;
 
 //Connect to MongoDB
 mongoose
-    .connect(db)
+    .connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
 // Use routes
 app.use(express.json());
-app,use(exoress.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 
 app.use(
