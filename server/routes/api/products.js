@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
 // @access  Public
 
 router.get('/coffees', (req, res) => {
-    Product.find({category: "Coffee"})
+    Product.find({category: "coffee"})
         .sort({ type: 1, brand: 1 , name: 1 })
         .then(products => res.json(products))
 });
@@ -57,7 +57,7 @@ router.get('/coffees', (req, res) => {
 // @access  Public
 
 router.get('/teas', (req, res) => {
-    Product.find({category: "Tea"})
+    Product.find({category: "tea"})
         .sort({ type: 1, brand: 1 , name: 1 })
         .then(products => res.json(products))
 });

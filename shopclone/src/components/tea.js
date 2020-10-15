@@ -49,7 +49,7 @@ class tea extends Component {
                             this.state.teaData.map(product =>
                                 <li><div className="product">
                                     <Link to={'/product/' + product._id}>
-                                        <img className="product-image" src={sky} alt="" />
+                                        <img className="product-image" src={"http://localhost:5000/" + product.productImage} alt="" />
                                     </Link>
                                     <div className="product-name">
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
