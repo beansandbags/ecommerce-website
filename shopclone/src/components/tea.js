@@ -3,8 +3,28 @@ import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import sky from "../sky.png"
+
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000/api/products/teas'
+})
+
 
 class tea extends Component {
+    state = {
+        teaData: []
+    }
+
+    constructor() {
+        super();
+        api.get('/')
+            .then(res => {
+                this.setState( {teaData: res.data})
+            })
+            .catch(err => console.error(err))
+    }
    componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
@@ -21,22 +41,22 @@ class tea extends Component {
             
 
             <div className="grid-container">
-                <h3 className="cart-items">Our different teas!</h3>
+                <h3 className="cart-items">Tea</h3>
             <main className="main">
                 <div className="content">
                     <ul className="products">
                         {
-                            data.products.map(product =>
+                            this.state.teaData.map(product =>
                                 <li><div className="product">
                                     <Link to={'/product/' + product._id}>
-                                        <img className="product-image" src={product.image} alt="" />
+                                        <img className="product-image" src={sky} alt="" />
                                     </Link>
                                     <div className="product-name">
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
-                                    <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
+                                    <div className="product-rating">{5} Stars ({5} Reviews)</div>
                                 </div></li>
                             )
                         }

@@ -19,9 +19,7 @@ const ProductSchema = new Schema({
         required: true
     },
     features: {
-        type: {
-
-        }
+        type: [String]
     },
     stock: {
         type: Number,
@@ -38,6 +36,10 @@ const ProductSchema = new Schema({
     wishlist: {
         type: Number,
         default: 0
+    },
+    productImage:{
+        type: String,
+        required: true
     }
 });
 

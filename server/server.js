@@ -19,6 +19,8 @@ mongoose.Promise = global.Promise;
 
 mongoose.set('useCreateIndex', true);
 
+app.use('/uploads', express.static('uploads'))
+
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -49,6 +51,9 @@ mongoose
 // Use routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/api/uploads', express.static('uploads'));
+
 
 
 app.use(

@@ -79,7 +79,8 @@ body{
 }
 
 .products {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,6 +131,8 @@ body{
 .product-image {
     max-width: 25rem;
     max-height: 25rem;
+    width: 300px;
+    height: 300px;
 }
 
 .product-rating {
