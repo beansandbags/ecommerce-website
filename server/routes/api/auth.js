@@ -4,6 +4,21 @@ const passport = require("passport");
 
 // https://medium.com/swlh/set-up-an-express-js-app-with-passport-js-and-mongodb-for-password-authentication-6ea05d95335c
 
+router.get('/login', (req, res) => {
+    res.render('signin');
+})
+
+router.get('/logout', (req, res) => {
+    //handle with passport
+    res.send('logging out');
+})
+
+//auth with google
+router.get('/google', (req, res) => {
+    //handle with passport
+})
+
+/*
 router.post("/register_login", (req, res, next) => {
     passport.authenticate("local", function(err, user, info) {
         if (err) {
@@ -20,5 +35,6 @@ router.post("/register_login", (req, res, next) => {
         });
     })(req, res, next);
 });
+*/
 
 module.exports = router;

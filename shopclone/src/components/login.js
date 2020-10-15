@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import './navbarstyle.css'
 
 class signin extends Component {
-
-
     render() {
         return (
             <div>
@@ -13,7 +11,13 @@ class signin extends Component {
                 <input type="text" className="enter"></input> 
                 <label>Enter Password</label>
                 <input type="text" ></input>
-                <button className="join">Log In</button>
+                <table>
+                <tr>
+                    <td><button className="join">Log In</button></td>
+                    <td><a href="/auth/google"><button className="join">Google+</button></a></td>
+                    <td><button className="join">Facebook</button></td>
+                </tr>
+                </table>
                 <div>
                 <h6>Don't have an account yet?</h6>
                 <a className="join1" href="/signup">Sign up here!</a>
@@ -24,7 +28,5 @@ class signin extends Component {
         )
     }
 }
-
-
 
 export default signin

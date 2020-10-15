@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-session = require('express-session')
+const session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
-
 const passport = require('./passport/setup');
-const auth = require('./routes/api/auth');
+const authRoutes = require('./routes/api/auth');
 
 const products = require('./routes/api/products');
 
@@ -50,20 +49,10 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use('/auth', authRoutes);
 
-app.use(
-    session({
-        secret: "coffee bean",
-        resave: false,
-        saveUninitialized: true,
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
-    })  
-);
 
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.use("/api/auth", auth);
 
 app.use('/api/products', products);
 
