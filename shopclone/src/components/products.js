@@ -7,7 +7,7 @@ const Products = () => {
       <div class="container">
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title <i class="material-icons">more_vert</i></span>
@@ -21,7 +21,7 @@ const Products = () => {
 
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -34,7 +34,7 @@ const Products = () => {
         </div>
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -47,7 +47,7 @@ const Products = () => {
         </div>
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -60,7 +60,7 @@ const Products = () => {
         </div>
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -73,7 +73,7 @@ const Products = () => {
         </div>
         <div class="card small sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src={sky} />
+            <img class="activator" src={sky} alt="" />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>

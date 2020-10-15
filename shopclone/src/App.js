@@ -10,6 +10,10 @@ import Products from './components/products'
 import ProductScreen from './components/productscreen'
 import signin from './components/login'
 import signup from './components/signup'
+import cart from './components/cartScreen'
+import message from './components/message'
+import wishlist from './components/wishlist'
+import history from './components/history'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -27,6 +31,10 @@ class App extends Component {
           <Route path='/account' component={Account} />
           <Route path='/signin' component= {signin} />
           <Route path='/signup' component= {signup} />
+          <Route path='/cart' component= {cart} />
+          <Route path='/message' component= {message} />
+          <Route path='/wishlist' component= {wishlist} />
+          <Route path='/history' component= {history} />
           <Footer />
         </div>
       </BrowserRouter>

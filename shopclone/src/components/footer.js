@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom'
-import M from 'materialize-css'
 import './navbarstyle.css'
 
 class footer extends Component {

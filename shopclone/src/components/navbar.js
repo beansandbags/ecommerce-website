@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom'
 import Logo from '../shopclone.png'
 import Signin from '../signin.png'
 import M from 'materialize-css'
@@ -34,7 +33,7 @@ class navbar extends Component {
                     </a>
 
                     <ul className='right'>
-                        <li><a className='cart'>Cart</a></li>
+                        <li><a href="/cart" className='cart'>Cart</a></li>
                         <li><a href=""></a></li>
                         <li><a className='dropdown-trigger' href='' data-target='dropdown1'>
                         <img className="Signin brand-logo right" src={Signin}/> </a></li>
@@ -45,7 +44,7 @@ class navbar extends Component {
                     <a className='right hide-on-med-and-down'>
                     <form>
                         <div className="input-field">
-                            <input id="search" type="search" required/>
+                            <input id="search" type="search" placeholder="Search here" required/>
                             <label className="label-icon" for="search"><i className="material-icons">search</i></label>
                             <i className="material-icons">close</i>
                         </div>
@@ -72,9 +71,9 @@ class navbar extends Component {
             <ul id='dropdown1' className='dropdown-content'>
                 <li><a href="/account">Your Account</a></li>
                 <li className="divider" tabindex="-1"></li>
-                <li><a href="#!">Your Wishlist</a></li>
+                <li><a href="/wishlist">Your Wishlist</a></li>
                 <li className="divider" tabindex="-1"></li>
-                <li><a href="#!">Orders and Returns</a></li>
+                <li><a href="/history">Your Orders</a></li>
                 <li className="divider" tabindex="-1"></li>
             </ul>
 
