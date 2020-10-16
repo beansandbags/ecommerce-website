@@ -21,6 +21,13 @@ function ProductScreen(props) {
                         </li>
                         <li><b>Price: Rs {product.price} </b></li>
                         <li>
+                            <div>Quantity</div>
+                            <button className="option">1</button>
+                            <button className="option">2</button>
+                            <button className="option">3</button>
+                            <button className="option">4</button>
+                        </li>
+                        <li>
                             <button>Add to Cart</button>
                             <button> Add to Wishlist</button>
                         </li>

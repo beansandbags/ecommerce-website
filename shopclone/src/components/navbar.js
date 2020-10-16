@@ -33,6 +33,7 @@ class navbar extends Component {
                     </a>
 
                     <ul className='right'>
+                        <li><a className="cart-number" href="/cart">1</a></li> {/*Axios Cart Number*/}
                         <li><a href="/cart" className='cart'>Cart</a></li>
                         <li><a href=""></a></li>
                         <li><a className='dropdown-trigger' href='' data-target='dropdown1'>

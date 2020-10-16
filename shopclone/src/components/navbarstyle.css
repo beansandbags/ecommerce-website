@@ -318,3 +318,13 @@ body{
 .message {
     margin-right: 15%;
 }
+
+.cart-number {
+    border-radius: 50%;
+    background: white;
+    color: black;
+}
+
+.details-info .option {
+    width: 40px;
+}
