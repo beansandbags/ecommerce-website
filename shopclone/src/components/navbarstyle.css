@@ -207,7 +207,9 @@ body{
 
 .join {
     padding: 7px;
-    margin-left: 40%;
+    /*margin-left: auto;*/
+    margin-right: auto;
+    margin-left: 15%;
     color: white;
     background-color: #723d46;
     border: .1rem black solid;

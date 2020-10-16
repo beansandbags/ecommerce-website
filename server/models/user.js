@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 // https://medium.com/swlh/set-up-an-express-js-app-with-passport-js-and-mongodb-for-password-authentication-6ea05d95335c
 
+/*
 const ThirdPartyProviderSchema = new Schema({
     provider_name: {
         type: String,
@@ -18,16 +19,24 @@ const ThirdPartyProviderSchema = new Schema({
         default: null
     }
 });
+*/
 
 const UserSchema = new Schema({
     name: {
         type: String,
         required: true
     },
+    photo: {
+        type: String
+    },
+    googleID:{
+        type: String
+    },
+    facebookID: {
+        type: String
+    },
     email: {
-        type: String,
-        required: true,
-        unique: true
+        type: String
     },
     password: {
         type: String
@@ -60,13 +69,15 @@ const UserSchema = new Schema({
         type: [String],
         default: [null]
     },
+    /*
     third_party_auth: [ThirdPartyProviderSchema],
     date: {
         type: Date,
         default: Date.now
     }
+    */
 },
-{ strict: false }
+//{ strict: false }
 );
 
 module.exports = User = mongoose.model("user", UserSchema);

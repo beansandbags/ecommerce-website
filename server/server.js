@@ -1,19 +1,33 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-session = require('express-session')
+const session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
+const passport = require('passport');
 
+const cookieSession = require('cookie-session');
 
-const passport = require('./passport/setup');
-const auth = require('./routes/api/auth');
+const keys = require('./config/keys')
+
+//const passport = require('./passport/setup');
+const passportSetup = require('./config/passport-setup')
+const authRoutes = require('./routes/api/auth');
+const profileRoutes = require('./routes/api/profile-routes');
 
 const products = require('./routes/api/products');
 
 const app = express();
 
 app.use(cors());
+
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.Promise = global.Promise;
 
@@ -54,21 +68,10 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/uploads', express.static('uploads'));
 
-
-
-app.use(
-    session({
-        secret: "coffee bean",
-        resave: false,
-        saveUninitialized: true,
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
-    })  
-);
-
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use("/api/auth", auth);
+app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes)
 
 app.use('/api/products', products);
 
