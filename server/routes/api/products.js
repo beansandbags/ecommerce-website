@@ -42,14 +42,7 @@ router.get('/', (req, res) => {
         .then(products => res.json(products))
 });
 
-// @route   GET api/products/:id
-// @desc    Get All Products
-// @access  Public
 
-router.get('/:id', (req, res) => {
-  Product.findById(req.params.id)
-      .then(products => res.json(products))
-});
 
 // @route   GET api/products/coffees
 // @desc    Get All Coffees
@@ -71,14 +64,15 @@ router.get('/teas', (req, res) => {
         .then(products => res.json(products))
 });
 
-// @route   GET api/products/chocolates
-// @desc    Get All Chocolates
+// @route   GET api/products/:id
+// @desc    Get All Products
 // @access  Public
 
-router.get('/chocolates', (req, res) => {
-    Product.find({category: "Chocolate"})
-        .sort({ type: 1, brand: 1 , name: 1 })
-        .then(products => res.json(products))
+router.get('/:id', (req, res) => {
+  Product.findById(req.params.id)
+    .then(products => res.json(products))
+    .catch(err => console.error(err))
+
 });
  
 
