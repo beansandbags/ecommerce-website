@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require("passport");
 
+
 // https://medium.com/swlh/set-up-an-express-js-app-with-passport-js-and-mongodb-for-password-authentication-6ea05d95335c
 
 router.get('/login', (req, res) => {
@@ -40,6 +41,11 @@ router.post("/register_login", (req, res, next) => {
             return res.status(200).json({ success: `logged in ${user.id}` });
         });
     })(req, res, next);
+});
+
+router.get('/current-user', (req, res) => {
+    const currentUser = JSON.parse(storage.getItem('user'));
+    res.send(currentUser);
 });
 */
 

@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const session = require('express-session')
+const session = require('express-session');
+
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 const passport = require('passport');
 
 const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
 
 const keys = require('./config/keys')
 
@@ -17,7 +19,11 @@ const profileRoutes = require('./routes/api/profile-routes');
 
 const products = require('./routes/api/products');
 
+require('dotenv').config();
+
 const app = express();
+
+
 
 app.use(cors());
 
@@ -37,6 +43,7 @@ app.use('/uploads', express.static('uploads'))
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
                 /*
                 // Passport Local Config
@@ -54,7 +61,7 @@ app.use(bodyParser.json());
                 */
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = keys.mongoURI;
 
 //Connect to MongoDB
 mongoose
@@ -62,14 +69,30 @@ mongoose
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
+const connection = mongoose.createConnection(process.env.DB_STRING)
+
+const sessionStore = new MongoStore({ mongooseConnection: connection, collection: 'sessions' })
+
 // Use routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(session({
+    secret: keys.session,
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    cookie: {
+        maxAge: 132000000000000
+    }
+}));
+
 app.use('/api/uploads', express.static('uploads'));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes)
 
