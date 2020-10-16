@@ -19,7 +19,6 @@ class footer extends Component {
                     <li><a className="grey-text text-lighten-3" href="/">Home</a></li>
                     <li><a className="grey-text text-lighten-3" href="/tea">Tea</a></li>
                     <li><a className="grey-text text-lighten-3" href="/coffee">Coffee</a></li>
-                    <li><a className="grey-text text-lighten-3" href="/chocolate">Chocolates</a></li>
                   </ul>
                 </div>
               </div>

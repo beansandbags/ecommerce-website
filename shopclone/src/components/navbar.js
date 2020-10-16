@@ -56,7 +56,7 @@ class navbar extends Component {
                         <li><a href="/"><img className="Mainlogo" src={Logo}/></a></li>
                         <li><a href="/tea">Tea</a></li>
                         <li><a href="/coffee">Coffee</a></li>
-                        <li><a href="/chocolate">Chocolate</a></li>
+                        
                         <li><a href=""></a></li>
                         <li><a href=""></a></li>
                     </ul>
@@ -66,7 +66,7 @@ class navbar extends Component {
             <ul className="sidenav" id="mobile-demo">
                 <li><a href="/tea">Tea</a></li>
                 <li><a href="/coffee">Coffee</a></li>
-                <li><a href="/chocolate">Chocolate</a></li>
+                
             </ul>
 
             <ul id='dropdown1' className='dropdown-content'>

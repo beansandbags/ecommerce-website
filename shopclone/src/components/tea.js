@@ -4,7 +4,7 @@ import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import sky from "../sky.png"
+
 
 
 const api = axios.create({

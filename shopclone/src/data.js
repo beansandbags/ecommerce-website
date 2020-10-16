@@ -1,11 +1,11 @@
-import sky from './sky.png'
+import signin from './signin.png'
 
 export default {
     products: [{
         _id: 1,
         name: 'Coffee1',
         category: 'coffee',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,
@@ -20,7 +20,7 @@ export default {
         _id: 2,
         name: 'Coffee1',
         category: 'coffee',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,
@@ -36,7 +36,7 @@ export default {
         name: 'Coffee1',
         purchases: 0,
         category: 'coffee',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,
@@ -52,7 +52,7 @@ export default {
         name: 'Coffee1',
         purchases: 0,
         category: 'tea',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,
@@ -68,7 +68,7 @@ export default {
         name: 'Coffee1',
         purchases: 0,
         category: 'tea',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,
@@ -84,7 +84,7 @@ export default {
         name: 'Coffee1',
         purchases: 0,
         category: 'tea',
-        image: sky,
+        image: signin,
         price: 300,
         brand: 'brand1',
         rating: 4.5,

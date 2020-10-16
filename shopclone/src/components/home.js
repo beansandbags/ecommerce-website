@@ -1,11 +1,29 @@
 import React, {Component} from 'react';
-import sky from '../sky.png'
+
 import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import signin from '../signin.png'
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000/api/products'
+})
 
 class home extends Component {
+    state = {
+        productData: []
+    }
+    constructor() {
+        super();
+        api.get('/')
+            .then(res => {
+                this.setState( {productData: res.data})
+            })
+            .catch(err => console.error(err))
+    }
+
    componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
@@ -24,24 +42,24 @@ class home extends Component {
             <div className="grid-container">
             <main className="main">
             <div class="carousel center">
-                            <a class="carousel-item" href="#one!"><img src={sky} /></a>
-                            <a class="carousel-item" href="#two!"><img src={sky} /></a>
-                            <a class="carousel-item" href="#three!"><img src={sky} /></a>
+                            <a class="carousel-item" href="#one!"><img src={signin} /></a>
+                            <a class="carousel-item" href="#two!"><img src={signin} /></a>
+                            <a class="carousel-item" href="#three!"><img src={signin} /></a>
                         </div>
                 <div className="content">
                     <ul className="products">
                         {
-                            data.products.map(product =>
+                            this.state.productData.map(product =>
                                 <li><div className="product">
                                     <Link to={'/product/' + product._id}>
-                                        <img className="product-image" src={product.image} alt="" />
+                                        <img className="product-image" src={"http://localhost:5000/" + product.productImage} alt="" />
                                     </Link>
                                     <div className="product-name">
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
-                                    <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
+                                    <div className="product-rating">{5} Stars ({5} Reviews)</div>
                                 </div></li>
                             )
                         }
