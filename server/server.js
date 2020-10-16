@@ -4,17 +4,30 @@ const bodyParser = require('body-parser');
 const session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
+const passport = require('passport');
 
+const cookieSession = require('cookie-session');
+
+const keys = require('./config/keys')
 
 //const passport = require('./passport/setup');
 const passportSetup = require('./config/passport-setup')
 const authRoutes = require('./routes/api/auth');
+const profileRoutes = require('./routes/api/profile-routes');
 
 const products = require('./routes/api/products');
 
 const app = express();
 
 app.use(cors());
+
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.Promise = global.Promise;
 
@@ -52,9 +65,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/auth', authRoutes);
-
-
-
+app.use('/profile', profileRoutes)
 
 app.use('/api/products', products);
 
