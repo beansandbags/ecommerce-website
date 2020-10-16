@@ -42,6 +42,15 @@ router.get('/', (req, res) => {
         .then(products => res.json(products))
 });
 
+// @route   GET api/products/:id
+// @desc    Get All Products
+// @access  Public
+
+router.get('/:id', (req, res) => {
+  Product.findById(req.params.id)
+      .then(products => res.json(products))
+});
+
 // @route   GET api/products/coffees
 // @desc    Get All Coffees
 // @access  Public
