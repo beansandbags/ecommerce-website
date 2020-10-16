@@ -5,7 +5,9 @@ const session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
-const passport = require('./passport/setup');
+
+//const passport = require('./passport/setup');
+const passportSetup = require('./config/passport-setup')
 const authRoutes = require('./routes/api/auth');
 
 const products = require('./routes/api/products');
