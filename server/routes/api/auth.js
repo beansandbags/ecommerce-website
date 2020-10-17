@@ -6,7 +6,7 @@ const passport = require("passport");
 // https://medium.com/swlh/set-up-an-express-js-app-with-passport-js-and-mongodb-for-password-authentication-6ea05d95335c
 
 router.get('/login', (req, res) => {
-    res.send('loggin in');
+    res.json(req.user);
 })
 
 router.get('/logout', (req, res) => {

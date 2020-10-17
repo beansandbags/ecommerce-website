@@ -9,8 +9,8 @@ const authCheck = (req, res, next) => {
     }
 };
 
-router.get('/', authCheck, (req, res) => {
-    res.send('you are logged in ' + req.user.name)
+router.get('/', (req, res) => {
+    res.json(req.user)
 })
 
 module.exports = router;
