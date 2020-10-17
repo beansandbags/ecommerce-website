@@ -21,7 +21,9 @@ class ProductScreen extends Component {
     }
     
     
+    
     render() {
+        if(this.state.product.features == null) return null;
         return (
             <div>
             

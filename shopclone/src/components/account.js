@@ -11,7 +11,7 @@ const config = {
     headers: {
       'Content-Type': 'application/json',
     },
-  };
+};
 
 class account extends Component {
     state = {
@@ -24,12 +24,14 @@ class account extends Component {
         api.get('/', config)
             .then(res => {
                 this.setState( {profileData: res.data})
-                console.log(res.data)
+                console.log(this.state.profileData.address[0])
             })
             .catch(err => console.error(err))
     }
 
     render() {
+        if(this.state.profileData.address == null) return null;
+
         return (
             <form className="signin">
                     <h4>Edit Account Details</h4>
@@ -40,7 +42,7 @@ class account extends Component {
                     <label>Enter Password</label>
                     <input type="text" placeholder="ostrichPoopCoffee"></input>
                     <label>Enter Address</label>
-                    <input type="text" placeholder= {this.state.profileData.address}></input>
+                    <input type="text" placeholder= {this.state.profileData.address[0]}></input>
                     <button className="join">Save</button>
             </form>
         )

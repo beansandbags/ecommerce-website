@@ -27,7 +27,7 @@ passport.use(
                 new User({
                     name: email.displayName,
                     googleID: email.id,
-                    photo: email.photos.value,
+                    photo: email.photos[0].value,
                     email: email.emails[0].value
                 }).save().then((newUser) => {
                     console.log('new user created');

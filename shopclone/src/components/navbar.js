@@ -3,8 +3,35 @@ import Logo from '../shopclone.png'
 import Signin from '../signin.png'
 import M from 'materialize-css'
 import './navbarstyle.css'
+import axios from 'axios'
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000/profile'
+})
+
+const config = {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+};
+
 
 class navbar extends Component {
+    state = {
+        profileData: {}
+
+    }
+
+    constructor() {
+        super();
+        api.get('/', config)
+            .then(res => {
+                this.setState( {profileData: res.data})
+                console.log(res.data)
+            })
+            .catch(err => console.error(err))
+    }
 
     componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
@@ -19,6 +46,7 @@ class navbar extends Component {
     }
 
     render() {
+        if(this.state.profileData.cart == null) return null;
         return (
             <nav>
                 <div className="nav-wrapper navbar">
@@ -33,11 +61,11 @@ class navbar extends Component {
                     </a>
 
                     <ul className='right'>
-                        <li><a className="cart-number" href="/cart">1</a></li> {/*Axios Cart Number*/}
+                        <li><a className="cart-number" href="/cart">{this.state.profileData.cart.length}</a></li> {/*Axios Cart Number*/}
                         <li><a href="/cart" className='cart'>Cart</a></li>
                         <li><a href=""></a></li>
                         <li><a className='dropdown-trigger' href='' data-target='dropdown1'>
-                        <img className="Signin brand-logo right" src={Signin}/> </a></li>
+                        <img className="Signin brand-logo right" src={this.state.profileData.photo}/> </a></li>
                     </ul>
 
                     
