@@ -37,15 +37,9 @@ const Product = require('../../models/Product');
 // @access  Public
 
 router.get('/', (req, res) => {
-    Product.find()
+    Product.find()  
         .sort({ name: 1 })
         .then(products => res.json(products))
-});
-
-router.get('/home', (req, res) => {
-  Product.find()
-      .sort({ name: 1 })
-      .then(products => res.json(products))
 });
 
 
