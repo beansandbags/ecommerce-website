@@ -113,14 +113,15 @@ class navbar extends Component {
                         </div>
                     </form>  
                     </a>
- 
+                    
                     <ul className="mainnav left hide-on-med-and-down">
-                        <li><a href="/"><img className="Mainlogo" src={Logo}/></a></li>
+                        <li><a href="/"><img className="center brand-logo Mainlogo" src={Logo}/></a></li>
                         <li><a href="/tea">Tea</a></li>
                         <li><a href="/coffee">Coffee</a></li>
                         <li><a href=""></a></li>
                         <li><a href=""></a></li>
                     </ul>
+
                         
                 </div>
  

@@ -9,8 +9,15 @@ body{
     background: white;
 }
  
+@font-face{
+    font-family: "nexa-bold";
+    src: url(./fonts/nexa-bold.ttf);
+}
+
+
 .mainnav {
     color: #ffe1a8;
+    font-family: nexa-bold;
     font-size: 2rem;
 }
  
@@ -33,9 +40,8 @@ body{
 }
  
 .Mainlogo {
-    border: 1px;
-    width: 100px;
-    padding: 7px;
+    margin-top: 5px;
+    width: 190px;
 }
  
 .Signin {
@@ -55,7 +61,7 @@ body{
 }
  
 .input-field {
-    left: -120%;
+    left: -400%;
     width: 180%;
 }
  
