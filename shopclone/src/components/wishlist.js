@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import data from '../data';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 const userApi = axios.create({
@@ -67,7 +66,9 @@ class wishlist extends Component {
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                         <div className="product-price">Rs {product.price}</div>
-                                        <button> Delete </button>
+                                        <button className="quantity-selector"> Add to Cart </button>
+                                        <button> Remove </button>
+                                        
                                 </div>
                             </li>
                         )

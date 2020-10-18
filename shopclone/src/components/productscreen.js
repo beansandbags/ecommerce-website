@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import data from '../data';
 import axios from 'axios'
  
 const api = axios.create({

@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-
-import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
@@ -60,6 +58,7 @@ class home extends Component {
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
                                     <div className="product-rating">{5} Stars ({5} Reviews)</div>
+                                    <button className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )
                         }

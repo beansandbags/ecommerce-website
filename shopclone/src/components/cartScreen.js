@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import data from '../data';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -30,7 +29,6 @@ class cartScreen extends Component {
         
         userApi.get('/', config)
             .then(res => {
-                
                 this.setState( {cartProductID: res.data.cart})
                 
             })
@@ -51,6 +49,8 @@ class cartScreen extends Component {
             .catch(err => console.error(err));        
         
     }
+
+    
 
     render() {
 
