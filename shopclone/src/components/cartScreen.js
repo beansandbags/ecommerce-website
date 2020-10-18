@@ -53,7 +53,7 @@ class cartScreen extends Component {
     }
 
     render() {
-        console.log("HOPE", this.state.cartProductData[0])
+
         
         return (
                 <div>
