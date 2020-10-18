@@ -10,18 +10,65 @@ const api = axios.create({
     baseURL: 'http://localhost:5000/api/products/coffees'
 })
 
+const userApi = axios.create({
+    baseURL: 'http://localhost:5000/profile'
+})
+
+function updateCart() {
+    console.log('PUT/PATCH Request');
+}
+
+const config = {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+};
+
 class coffee extends Component {
     state = {
-        coffeeData: []
+        coffeeData: [],
+        cartProductID:[],
+        loggedInUser: ""
     }
     constructor() {
         super();
+        
         api.get('/')
             .then(res => {
                 this.setState( {coffeeData: res.data})
             })
             .catch(err => console.error(err))
+
+        userApi.get('/', config)
+            .then(res => {
+                this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id})     
+                
+            })
+            .catch(err => console.error(err))
+
+
+
     }
+
+    
+    async updateLocalCart(newID) {
+        this.setState(prevState => ({
+            cartProductID: [...prevState.cartProductID, newID]
+        }))
+    }
+    
+    addToCart(newID) {
+        
+        this.updateLocalCart(newID)
+            .then(res => {
+                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID});                
+            })
+            .catch(err => console.error(err));
+        
+
+    }
+
    componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
@@ -33,6 +80,7 @@ class coffee extends Component {
           });
     }
 
+   
     render() {
         return (
             
@@ -54,7 +102,7 @@ class coffee extends Component {
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
                                     <div className="product-rating">{5} Stars ({5} Reviews)</div>
-                                    <button className="quantity-selector"> Add to Cart </button>
+                                    <button onClick={this.addToCart.bind(this, product._id)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )
                         }
@@ -65,6 +113,8 @@ class coffee extends Component {
         
             )
     }
+
+    
 }
 
 export default coffee

@@ -100,6 +100,33 @@ router.delete('/:id', (req, res) => {
         .then(product => product.remove().then(() => res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));
 });
+
+// @route   PUT api/products/:id
+// @desc    Modify a product
+// @access  Public
+
+router.put('/:id', (req, res) => {
+  Product.findByIdAndUpdate({_id: req.params.id}, req.body)
+      .then(product => {
+        res.json(product);
+        console.log("SUCCESS")
+      })
+      .catch(err => {
+        res.status(404).json({success: false});
+        console.log("ERROR____");
+
+      });
+});
+
+/*
+db.posts.update({ title: 'Post Two' },
+{
+  $set: {
+    body: 'Body for post 2',
+    category: 'Technology'
+  }
+})
+*/
     
 
 module.exports = router;

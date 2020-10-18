@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then(transactions => res.json(transactions))
 });
 
-// @route   POST api/products
+// @route   POST api/transactions
 // @desc    Post any item
 // @access  Public
 
