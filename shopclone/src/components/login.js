@@ -15,7 +15,7 @@ class signin extends Component {
                 <tr>
                     <td><button className="join">Log In</button></td>
                     <td><button className="join"><a href="http://localhost:5000/auth/google">Google+</a></button></td>
-                    <td><button className="join">Facebook</button></td>
+                    <td><button className="join"><a href="http://localhost:5000/auth/facebook">Facebook</a></button></td>
                 </tr>
                 </table>
                 <div>

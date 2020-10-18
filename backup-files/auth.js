@@ -10,9 +10,8 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-    console.log('logging out')
     req.logout();
-    res.redirect('http://localhost:3000');
+    res.redirect('http://localhost:3000')
     //res.send('logging out');
 })
 
@@ -26,14 +25,6 @@ router.get('/google/redirect', passport.authenticate('google'), (req,res) => {
     res.redirect('http://localhost:3000')
 });
 
-router.get('/facebook', passport.authenticate('facebook', {
-    scope: ['email']
-}));
-
-router.get('/facebook/redirect', passport.authenticate('facebook'), (req,res) => {
-    //res.send(req.user);
-    res.redirect('http://localhost:3000')
-});
 /*
 router.post("/register_login", (req, res, next) => {
     passport.authenticate("local", function(err, user, info) {

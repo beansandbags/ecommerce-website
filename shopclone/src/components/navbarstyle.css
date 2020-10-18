@@ -1,83 +1,66 @@
 html {
     box-sizing: border-box;
 }
-
+ 
 body{
     font: Helvetica;
     height: 100vh;
     margin: 0;
-    background: #ffe1a8;
+    background: white;
 }
-
+ 
 .mainnav {
     color: #ffe1a8;
     font-size: 2rem;
 }
-
+ 
 .navbar {
-    background: #723d46;
+    background: Firebrick;
 }
-
+ 
 .footer {
-    background: #723d46;
+    background: Firebrick;
 }
-
+ 
 .footer .content {
     margin-left: 20px;
 }
-
+ 
 .carousel .carousel-item>img {
     width: 350%;
     height: 140%; 
     margin-left: -125%;
 }
-
+ 
 .Mainlogo {
     border: 1px;
     width: 100px;
     padding: 7px;
 }
-
+ 
 .Signin {
     top: 10px;
     width: 40px;
 }
-
+ 
 .dropdown-content {
     top: -60px;
     min-width: 180px;
     color: black;
     position: right;
 }
-
+ 
 .dropdown-trigger .btn {
     right: 0px;
 }
-
+ 
 .input-field {
     left: -120%;
     width: 180%;
 }
-
+ 
 .input-field input[type=search]{ height: 64px !important; }
-
-.card {
-    width: 30%;
-    height: 250px;
-    background: pink; /*Change this back to grey if you wish */
-    font-size: 18px;
-}
-.custom-align .card-content {
-    flex: 1;
-    max-height: 100%;
-    align-items: flex-start;
-    margin-bottom: 50px;
-}
-
-.reveal {
-    color: black;
-}
-
+ 
 .products {
     margin-top: 50px;
     margin-bottom: 80px;
@@ -86,60 +69,56 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
-
+ 
 .products li{
     list-style-type: none;
-    flex: 0 30rem;
+    flex: 0 17.5rem;
     padding: 0;
     margin: 1rem;
-    height: 25rem;
+    height: 28rem;
     border-bottom: .1rem #c0c0 solid;
 }
-
+ 
 .product {
     display: flex;
-    margin-left: 40px;
+    margin-left: 30px;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
-
+ 
 .product-name a{
-    font-size: 1.5rem;
-    margin-left: 10px;
+    font-size: 1.2rem;
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
-
+ 
 .product-name a:hover{
-    color: #723d46;
+    color: firebrick;
 }
-
+ 
 .product-brand {
-    margin-left: 10px;
     font-size: 1rem;
     color: black;
 }
-
+ 
 .product-price {
-    margin-left: 10px;
     font-size: 1.2rem;
     font-weight: bold;
 }
-
+ 
 .product-image {
     max-width: 25rem;
     max-height: 25rem;
     width: 300px;
     height: 300px;
 }
-
+ 
 .product-rating {
-    margin-left: 10px;
     margin-bottom: 5rem;
 }
-
+ 
 .details {
     margin-top: 100px;
     margin-bottom: 100px;
@@ -148,45 +127,45 @@ body{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-
+ 
 .details-image {
     margin-left: 100px;
     flex: 2 1 50rem;
 }
-
+ 
 .details-image img{
     max-width: 50rem;
 }
-
+ 
 .details-info {
     margin: 0;
     margin-right: 0px;
     flex: 1 1 40rem;
 }
-
+ 
 .details-description {
     list-style-type: none;
     margin-left: 100px;
     margin-bottom: 2rem;
 }
-
-.details-info button{
+ 
+.details-info .quantity-selector{
     padding: 7px;
     margin-right: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 120px;
     color: white;
-    background-color: #723d46;
+    background-color: Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
 }
-
+ 
 .details-info li{
     margin-bottom: 1rem;
 }
-
+ 
 .signin {
     width: 40%;
     margin-left: 30%;
@@ -200,45 +179,45 @@ body{
     padding-bottom: 30px;
     border: .1rem black solid;
 }
-
+ 
 .enter {
     border: .1rem black solid;
 }
-
+ 
 .join {
     padding: 7px;
     /*margin-left: auto;*/
     margin-right: auto;
-    margin-left: 15%;
+    margin-left: 40%;
     color: white;
-    background-color: #723d46;
+    background-color:Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
     width: 120px;
 }
-
+ 
 .join1 {
     padding: 7px;
     margin-left: 41%;
     color: white;
-    background-color: #723d46;
+    background-color: Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
     width: 120px;
 }
-
+ 
 .signin h6{
     margin-bottom: 20px;
     margin-left: 32%;
 }
-
+ 
 .cart-items {
     margin-left: 5%;
     margin-top: 25px;
 }
-
+ 
 .cart-details {
     margin-left: 4%;
     max-width: 90%;
@@ -249,12 +228,12 @@ body{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-
+ 
 .cart-details li{
     list-style-type: none;
-    height: 25rem;
+    height: 30rem;
 }
-
+ 
 .cart-product {
     display: flex;
     margin-left: 40px;
@@ -263,32 +242,32 @@ body{
     height: 100%;
     margin-bottom: 1rem;
 }
-
+ 
 .cart-product button{
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 2px;
+    margin-bottom: 10px;
     padding: 4px;
     color: white;
-    background-color: #723d46;
+    background-color: Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
 }
-
+ 
 .cart-checkout {
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 80px;
     margin-bottom: 80px;
-    background: white;
+    background: grey;
     padding: 15px;
     padding-right: 30px;
     padding-left: 30px;
     padding-bottom: 30px;
     border: .1rem black solid;
 }
-
+ 
 .cart-checkout a{
     margin-top: 10px;
     margin-bottom: 30px;
@@ -296,35 +275,57 @@ body{
     padding: 7px;
     color: white;
     text-decoration: none;
-    background-color: #723d46;
+    background-color: Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
     width: 150px;
 }
-
+ 
 .cart-checkout .done {
     margin-left: 35%;
 }
-
+ 
 .cart-checkout .done1 {
     margin-left: 23%;
 }
-
+ 
 .cart-checkout .done2 {
     margin-left: 28%;
 }
-
+ 
 .message {
     margin-right: 15%;
 }
-
+ 
 .cart-number {
-    border-radius: 50%;
-    background: white;
-    color: black;
+    background: Firebrick;
+    color: white;
 }
-
+ 
 .details-info .option {
     width: 40px;
+}
+ 
+.comments {
+    width: 50%;
+    background: #E3E2DF;
+    padding: 15px;
+    border: .1rem solid black;
+    margin-top: 1rem;
+}
+ 
+.comments td{
+    border: 1px solid #E3E2DF;
+}
+ 
+.comment-rating {
+    background: firebrick;
+    color: white;
+    margin-right: 10px;
+    padding: 7px;
+    width: 40px;
+    border: .1rem black solid;
+    border-radius: .4rem;
+    cursor: pointer;
 }

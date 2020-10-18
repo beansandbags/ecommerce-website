@@ -38,10 +38,15 @@ const Product = require('../../models/Product');
 
 router.get('/', (req, res) => {
     Product.find()
-        .sort({ type: 1, brand: 1 , name: 1 })
+        .sort({ name: 1 })
         .then(products => res.json(products))
 });
 
+router.get('/home', (req, res) => {
+  Product.find()
+      .sort({ name: 1 })
+      .then(products => res.json(products))
+});
 
 
 // @route   GET api/products/coffees

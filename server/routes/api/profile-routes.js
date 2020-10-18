@@ -9,7 +9,7 @@ const authCheck = (req, res, next) => {
     }
 };
 
-router.get('/', (req, res) => {
+router.get('/', authCheck, (req, res) => {
     res.json(req.user)
 })
 

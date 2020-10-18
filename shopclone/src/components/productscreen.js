@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import data from '../data';
 import axios from 'axios'
-
+ 
 const api = axios.create({
     baseURL: 'http://localhost:5000/api/products'
 })
-
+ 
 class ProductScreen extends Component {
-
+ 
     state = {
         product: []
     }
@@ -40,9 +40,14 @@ class ProductScreen extends Component {
                                 {5} Stars ({5} Reviews)
                             </li>
                             <li><b>Price: Rs {this.state.product.price} </b></li>
+                            <p>Quantity</p>
+                            <button className="comment-rating">1</button>
+                            <button className="comment-rating">2</button>
+                            <button className="comment-rating">3</button>
+                            <button className="comment-rating">4</button>
                             <li>
-                                <button>Add to Cart</button>
-                                <button> Add to Wishlist</button>
+                                <button className="quantity-selector">Add to Cart</button>
+                                <button className="quantity-selector"> Add to Wishlist</button>
                             </li>
                         </ul>
                     </div>
@@ -53,12 +58,35 @@ class ProductScreen extends Component {
                     </li>
                     <li>
                         <h4>Comments and Reviews</h4>
+                        <form className="comments">
+                            <table>
+                                <td>Insert Picture</td>
+                                <table>
+                                    <tr>
+                                        <td>Soham Bagchi</td>
+                                        <td>4 out of 5 stars</td>
+                                    </tr>
+                                    <tr><td>This caused my insomnia</td></tr>
+                                </table>
+                            </table>
+                        </form>
+                        <h6>Post Comment</h6>
+                        <form className="comments">
+                            
+                            <input type="text" placeholder= "Comment"></input>
+                            <p>Rating</p>
+                            <button className="comment-rating">1</button>
+                            <button className="comment-rating">2</button>
+                            <button className="comment-rating">3</button>
+                            <button className="comment-rating">4</button>
+                            <button className="comment-rating">5</button>
+                        </form>
                     </li>
                 </div>
-
+ 
             </div>
         )
     }
 }
-
+ 
 export default ProductScreen;
