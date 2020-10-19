@@ -9,9 +9,22 @@ const api = axios.create({
     baseURL: 'http://localhost:5000/api/products'
 })
 
+const userApi = axios.create({
+    baseURL: 'http://localhost:5000/profile'
+})
+
+const config = {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+};
+
 class home extends Component {
     state = {
-        productData: []
+        productData: [],
+        cartProductID:[],
+        loggedInUser: ""
     }
     constructor() {
         super();
@@ -20,6 +33,27 @@ class home extends Component {
                 this.setState( {productData: res.data})
             })
             .catch(err => console.error(err))
+
+        userApi.get('/', config)
+            .then(res => {
+                this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id})     
+                
+            })
+            .catch(err => console.error(err))
+    }
+
+    async updateLocalCart(newID) {
+        this.setState(prevState => ({
+            cartProductID: [...prevState.cartProductID, newID]
+        }))
+    }
+    
+    addToCart(newID) {    
+        this.updateLocalCart(newID)
+            .then(res => {
+                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID});                
+            })
+            .catch(err => console.error(err));
     }
 
    componentDidMount() {
@@ -58,7 +92,7 @@ class home extends Component {
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
                                     <div className="product-rating">{5} Stars ({5} Reviews)</div>
-                                    <button className="quantity-selector"> Add to Cart </button>
+                                    <button onClick={this.addToCart.bind(this, product._id)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )
                         }
