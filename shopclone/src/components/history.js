@@ -3,50 +3,74 @@ import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
+ 
+
+
 
 class history extends Component {
-   componentDidMount() {
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems, {
-                indicators: true,
-                shift: 50,
-                numVisible: 3
-            });
-          });
-    }
+
+
+
 
     render() {
         return (
-            
 
-            <div className="grid-container">
-                <h3 className="cart-items">Your Past Orders!</h3>
-            <main className="main">
-                <div className="content">
-                    <ul className="products">
-                        {
-                            data.products.map(product =>
-                                <li><div className="product">
-                                    <Link to={'/product/' + product._id}>
-                                        <img className="product-image" src={product.image} alt="" />
-                                    </Link>
-                                    <div className="product-name">
-                                        <Link to={'/product/' + product._id}>{product.name}</Link>
-                                    </div>
-                                    <div className="product-brand">{product.brand}</div>
-                                    <div className="product-price">Rs {product.price}</div>
-                                    <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
-                                </div></li>
-                            )
-                        }
-                    </ul>
-                </div>
-            </main>
-        </div>      
+        <div>
+            <h3 className="cart-items">Your Past Orders</h3>
+            <div>
+                <hr></hr>
+                <h4 className="history-date">Date</h4>
+                <ul className="history-table">
+                {
+                    data.products.map(product =>
+                        <table>
+                            <tr>
+                                <td>
+                                <div className="history-name">
+                                    <Link to={'/product/' + product._id}>{product.name}</Link>
+                                </div>
+                                </td>
+                                <td>
+                                <div className="history-price">Rs {product.price}</div>
+                                </td>
+                            </tr>
+                        </table>
+                    )
+                }
+                <h6 className="history-value">Total Value</h6>
+                </ul>
+            </div>
+ 
+            <div>
+                <hr></hr>
+                <h4 className="history-date">Date</h4>
+                <ul className="history-table">
+                {
+                    data.products.map(product =>
+                        <table>
+                            <tr>
+                                <td>
+                                <div className="history-name">
+                                    <Link to={'/product/' + product._id}>{product.name}</Link>
+                                </div>
+                                </td>
+                                <td>
+                                <div className="history-price">Rs {product.price}</div>
+                                </td>
+                            </tr>
+                        </table>
+                    )
+                }
+                <h6 className="history-value">Total Value</h6>
+                </ul>
+            </div>
+            <hr></hr>
+        </div>
+ 
+        
         
             )
     }
 }
-
+ 
 export default history

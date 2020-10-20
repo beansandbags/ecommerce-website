@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ReviewSchema = require('./review').schema;
 
 // Create a Schema
 const ProductSchema = new Schema({
@@ -30,8 +31,12 @@ const ProductSchema = new Schema({
         default: 0
     },
     comments: {
-        type: [String],
-        default: [""]
+        type: [ReviewSchema],
+        default: []
+    },
+    avgRating: {
+        type: Number,
+        default: 0,
     },
     wishlist: {
         type: Number,

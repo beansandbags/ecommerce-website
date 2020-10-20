@@ -90,7 +90,7 @@ class tea extends Component {
                                     </div>
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
-                                    <div className="product-rating">{5} Stars ({5} Reviews)</div>
+                                    <div className="product-rating">{product.avgRating} Stars ({product.comments.length} Reviews)</div>
                                     <button onClick={this.addToCart.bind(this, product._id)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )

@@ -106,6 +106,7 @@ router.delete('/:id', (req, res) => {
 // @access  Public
 
 router.put('/:id', (req, res) => {
+  console.log("HERE")
   Product.findByIdAndUpdate({_id: req.params.id}, req.body)
       .then(product => {
         res.json(product);
@@ -114,7 +115,6 @@ router.put('/:id', (req, res) => {
       .catch(err => {
         res.status(404).json({success: false});
         console.log("ERROR____");
-
       });
 });
 

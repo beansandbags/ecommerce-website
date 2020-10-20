@@ -350,3 +350,41 @@ body{
     border-radius: .4rem;
     cursor: pointer;
 }
+
+.history-table {
+ 
+    width: 70%;
+}
+ 
+.history-name a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+ 
+.history-name {
+    margin-left: 55%;
+}
+ 
+.history-price {
+    margin-left: 20%;
+}
+ 
+.history-table td{
+    border: 1px solid white;
+}
+ 
+.history-date{
+    margin-left: 15%;
+}
+ 
+.history-value{
+    margin-top: 20px;
+    margin-left: 20%;
+}
+ 
+hr {
+    margin-top: 60px;
+    width: 80%;
+}
