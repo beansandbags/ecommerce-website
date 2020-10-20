@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
 
 // Product Model
 
-const Product = require('../../models/Product');
+const Product = require('../../models/product');
 
 // @route   GET api/products
 // @desc    Get All Products
@@ -69,10 +69,7 @@ router.get('/teas', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Product.findById(req.params.id)
-    .then(products => {
-      console.log(products.name)
-      res.json(products)
-    })
+    .then(products => res.json(products))
     .catch(err => console.error(err))
 
 });
@@ -107,11 +104,21 @@ router.delete('/:id', (req, res) => {
 // @route   PUT api/products/:id
 // @desc    Modify a product
 // @access  Public
-
 router.put('/:id', (req, res) => {
   Product.findByIdAndUpdate({_id: req.params.id}, req.body)
       .then(product => res.json(product))
       .catch(err => res.status(404).json({success: false}));
 });
+
+/*
+db.posts.update({ title: 'Post Two' },
+{
+  $set: {
+    body: 'Body for post 2',
+    category: 'Technology'
+  }
+})
+*/
+    
 
 module.exports = router;

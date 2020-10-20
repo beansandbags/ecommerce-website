@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
+
 const userApi = axios.create({
     baseURL: 'http://localhost:5000/profile'
 })
@@ -21,15 +22,20 @@ class cartScreen extends Component {
 
     state = {
         cartProductID: [],
-        cartProductData: []
+        cartProductData: [],
+        loggedInUser: "",
+        curr_transaction_h: [],
+        totalCartValue: 0
         
     }
+
     constructor() {
         super();
-        
+    
+
         userApi.get('/', config)
             .then(res => {
-                this.setState( {cartProductID: res.data.cart})
+                this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id, curr_transaction_h: res.data.transaction_h})
                 
             })
             .then(res => {
@@ -46,10 +52,61 @@ class cartScreen extends Component {
                 }
             })
 
-            .catch(err => console.error(err));        
-        
+            .catch(err => console.error(err)); 
+            this.checkOut = this.checkOut.bind(this);
+            this.goHome = this.goHome.bind(this);
     }
 
+    async calcTotalPrice() {
+        var i;
+        var totalPrice = 0;
+        for(i = 0; i < this.state.cartProductData.length; i++) {
+            totalPrice += this.state.cartProductData[i].price;
+        }
+        this.setState({totalCartValue: totalPrice})
+    }
+
+    async localCheckOut() {
+        
+        this.calcTotalPrice()
+            .then(res => {
+                var tempTransaction = {
+                    productID: this.state.cartProductID,
+                    date: Date.now,
+                    value: this.state.totalCartValue
+                }
+                this.setState(prevState => ({
+                    curr_transaction_h: [...prevState.curr_transaction_h, tempTransaction]
+                }))
+                this.setState({cartProductID: []})
+                
+            })
+            .catch(err => console.error(err));   
+    }
+
+    checkOut(e) {
+        e.preventDefault()
+        this.localCheckOut()
+            .then(res => {
+                userApi.put('/' + this.state.loggedInUser, {
+                    transaction_h: this.state.curr_transaction_h,
+                    cart: this.state.cartProductID,
+                })
+                        .then(res => {
+                            alert("Purchase Successful")
+                            window.location = "/"
+                        })
+
+            })
+            .catch(err => console.error(err))
+
+    }
+
+    goHome(e) {
+        e.preventDefault()
+        window.location = '/'
+    }
+    
     
 
     render() {
@@ -80,9 +137,9 @@ class cartScreen extends Component {
                 <form className="cart-checkout">
                         <h4 className="done">Checkout</h4>
                         <p className="done1">Ready to get these beverages delivered?</p>
-                        <a href="/message">Buy These!</a>
+                        <button className="join" onClick={this.checkOut} > Buy These! </button>
                         <p className="done2"> Oh, you're thirsty for even more? </p>
-                        <a href="/">Shop More!</a>
+                        <button className="join" onClick={this.goHome}> Shop More!  </button>
                     </form>
             </div>
         )
