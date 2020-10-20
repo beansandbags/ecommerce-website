@@ -131,6 +131,7 @@ class ProductScreen extends Component {
         e.preventDefault()
         var oldComments = this.state.product.comments
         var oldLength = oldComments.length
+        //Figure out if product exists
         var newComment = {
             userID: this.state.userID,
             userName: this.state.currentUserName,
@@ -138,6 +139,7 @@ class ProductScreen extends Component {
             rating: 4,
             comment: this.state.comment,
             date: Date.now
+            //verified: true
         }
         oldComments.push(newComment)
         const newAvgRating = ((this.state.product.avgRating*oldLength)+4)/(oldLength+1)
