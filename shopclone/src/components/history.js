@@ -59,6 +59,7 @@ class history extends Component {
                             })
                     }
                 }
+                alert("A comment that I'll remove")
 
 
             })
