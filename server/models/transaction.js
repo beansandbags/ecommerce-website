@@ -13,6 +13,10 @@ const TransactionSchema = new Schema({
     value: {
         type: Number,
         required: true
+    },
+    productObjects: {
+        type: [{}],
+        required: true
     }
 });
 

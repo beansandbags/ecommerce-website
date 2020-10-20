@@ -177,6 +177,8 @@ class ProductScreen extends Component {
             })    
     }    
     
+
+
     render() {
         if(this.state.product.features == null) return null;
 
@@ -184,7 +186,7 @@ class ProductScreen extends Component {
         if(this.state.product.comments.length == 0){
             var existingReviews = "This Product has not been reviewed yet.";            
         } else {
-            var existingReviews =        this.state.product.comments.map(review =>
+            var existingReviews = this.state.product.comments.map(review =>
                 <table>
                     <td><img src={review.userPhoto}/></td>
                     <table>
@@ -223,28 +225,30 @@ class ProductScreen extends Component {
             <div>
             
                 <div  className="details">
-                    <div className="details-image">
+                <table className="iproducts">
+                        <td>
                         <img className="product-image" src={"http://localhost:5000/" + this.state.product.productImage} alt="" />
-                    </div>
-                    <div className="details-info">
-                        <ul>
-                            <li>
+                        </td>
+                        <table className="iproducts-info"> 
+                            <tr>
                                 <h4>{this.state.product.name}</h4>
-                            </li>
-                            <li>
-                                {5} Stars ({5} Reviews)
-                            </li>
-                            <li><b>Price: Rs {this.state.product.price} </b></li>
-                            <li>
+                            </tr>
+                            <tr>
+                                {this.state.product.avgRating} Stars ({this.state.product.comments.length} Reviews)
+                            </tr>
+                            <tr><b>Price: Rs {this.state.product.price} </b></tr>
+                               <tr>
                                 <button className="quantity-selector">Add to Cart</button>
                                 <button className="quantity-selector"> Add to Wishlist</button>
-                            </li>
-                        </ul>
-                    </div>
+                                </tr>
+                            </table>
+                    </table>
                 </div>
                 <div className="details-description">
                     <li> <h4>Description:</h4> 
-                        <div>{this.state.product.features}</div>
+                        <div>{this.state.product.features.map(features => 
+                            <p>{features}</p>
+                            )}</div>
                     </li>
                     <li>
                         <h4>Comments and Reviews</h4>

@@ -70,7 +70,6 @@ router.get('/teas', (req, res) => {
 router.get('/:id', (req, res) => {
   Product.findById(req.params.id)
     .then(products => {
-      console.log(products.name)
       res.json(products)
     })
     .catch(err => console.error(err))

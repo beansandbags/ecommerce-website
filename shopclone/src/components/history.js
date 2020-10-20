@@ -38,31 +38,29 @@ class history extends Component {
                 this.setState( {profileData: res.data, userID: res.data._id, transHistory: res.data.transaction_h})
                 console.log(this.state.userID)
             })
+            /*
             .then(res => {
-                var largest = 0
                 for(var i = 0; i < this.state.transHistory.length; i++){
-                    if(this.state.transHistory[i].productID.length > largest){
-                        largest = this.state.transHistory[i].productID.length
-                    }
-                }
-                alert("yes" + largest)
-
-                var innerArray = new Array(largest)
-                alert("here1" + innerArray.length)
-                var newTransHistArray = [[null]*largest]*this.state.transHistory.length
-                alert("here" + newTransHistArray[0].length)
-                for(var i = 0; i < this.state.transHistory.length; i++){
+                    var transID = this.state.transHistory[i]._id
+                    //alert("TransID: " + transID)
+                    var prodObjArr = new Array(this.state.transHistory[i].productID.length)
                     for(var j = 0; j < this.state.transHistory[i].productID.length; j++){
-                        prodApi.get('/' + this.state.transHistory[i].productID[j])
-                            .then(res => {
-                                newTransHistArray[i][j] = res.data
-                            })
+                        prodApi.get('/' + this.state.transHistory[i].productID[j]) //This is the ID of the prodct
+                               .then(prodRes => {
+                                    prodObjArr[j] = prodRes.data //prodRes.data is the json of the product
+                                    //alert("Name: " + prodObjArr[j].name)
+                               })
                     }
+                    //alert("Reaching Here")
+                    //alert("prodObjArr.id: " + prodObjArr[0]._id)
+                    this.setState(prevState => ({
+                        transHistory: prevState.transHistory.map(
+                        obj => (obj._id === transID ? Object.assign(obj, { productObjects: prodObjArr }) : obj)
+                      )
+                    }));
+                    //alert("ProductID Length: " + this.state.transHistory[i].productID[0].name)
                 }
-                alert("A comment that I'll remove")
-
-
-            })
+            })*/
             .catch(err => console.error(err))
             //alert(this.state.newTransHistory.length)
     }
@@ -73,29 +71,19 @@ class history extends Component {
     render() {
         if(this.state.transHistory == null) return null
 
-        //alert(this.state.newTransHistory.length)
-        var transHistoryCopy = this.state.transHistory
-        /*for(var i = 0; i < transHistoryCopy.length; i++){
-            for(var j = 0; j < transHistoryCopy[i].productID.length; j++){
-                var prod = transHistoryCopy[i].productID[j]
-                //alert(prod)
-                //transHistoryCopy[i].productID[j] = this.getProduct(prod)
-            }
-        }*/
-
+    
         return (
 
         <div>
             <h3 className="cart-items">Your Past Orders</h3>
             <div>
-                <hr></hr>
                 {
-                    transHistoryCopy.map(transaction =>
+                    this.state.transHistory.map(transaction =>
                         <div>
                         <h4 className="history-date">{transaction.date}</h4>
                         <ul className="history-table">
                         {
-                            transaction.productID.map(product =>
+                            transaction.productObjects.map(product =>
                                 <table>
                                     <tr>
                                         <td>
@@ -103,7 +91,7 @@ class history extends Component {
                                                 <Link to={'/product/' + product._id}>
                                                     {product.name}
                                                 </Link>
-                                            </div>"
+                                            </div>
                                         </td>
                                         <td>
                                             <div className="history-price">Rs. {product.price}</div>
@@ -118,10 +106,8 @@ class history extends Component {
                         )
                 }
             </div>
-            <hr></hr>
         </div>
  
-        
         
             )
     }

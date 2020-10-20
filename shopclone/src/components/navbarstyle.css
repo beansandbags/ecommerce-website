@@ -352,8 +352,7 @@ body{
 }
 
 .history-table {
- 
-    width: 70%;
+    width: 100%;
 }
  
 .history-name a{
@@ -361,6 +360,7 @@ body{
     text-decoration: none;
     color: black;
     font-weight: bold;
+    width:60%;
 }
  
 .history-name {
@@ -368,11 +368,12 @@ body{
 }
  
 .history-price {
-    margin-left: 20%;
+    margin-right: 0%;
 }
  
 .history-table td{
     border: 1px solid white;
+    width: 60%;
 }
  
 .history-date{
@@ -387,4 +388,48 @@ body{
 hr {
     margin-top: 60px;
     width: 80%;
+}
+
+.iproducts {
+    width: 80%;
+    margin-left: 10%;
+}
+ 
+.iproducts td{
+    border: 1px solid white;
+}
+ 
+.iproducts-info tr{
+    height: 30px;
+    border: 1px solid white;
+}
+
+.quantity-selector{
+    padding: 7px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 120px;
+    color: white;
+    background-color: Firebrick;
+    border: .1rem black solid;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.search-home {
+    margin-top: 12px;
+
+    position: absolute;
+
+}
+
+.search-icon-home {
+    margin-top: 20px;
+
+
+}
+
+.search-icon-home input {
+    text-indent: 40px;
 }

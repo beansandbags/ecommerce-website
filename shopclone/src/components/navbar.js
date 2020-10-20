@@ -104,15 +104,7 @@ class navbar extends Component {
  
                     
  
-                    <a className='right hide-on-med-and-down'>
-                    <form>
-                        <div className="input-field">
-                            <input id="search" type="search" placeholder="Search here" required/>
-                            <label className="label-icon" for="search"><i className="material-icons">search</i></label>
-                            <i className="material-icons">close</i>
-                        </div>
-                    </form>  
-                    </a>
+
                     
                     <ul className="mainnav left hide-on-med-and-down">
                         <li><a href="/"><img className="center brand-logo Mainlogo" src={Logo}/></a></li>
