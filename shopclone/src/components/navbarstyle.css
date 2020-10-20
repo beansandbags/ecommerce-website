@@ -388,3 +388,20 @@ hr {
     margin-top: 60px;
     width: 80%;
 }
+
+.search-home {
+    margin-top: 12px;
+    
+    position: absolute;
+
+}
+
+.search-icon-home {
+    margin-top: 20px;
+
+
+}
+
+.search-icon-home input {
+    text-indent: 40px;
+}

@@ -6,6 +6,7 @@ import axios from 'axios'
 import Banner1 from '../banners/Banner-1.jpeg'
 import Banner2 from '../banners/Banner-2.jpeg'
 import Banner3 from '../banners/Banner-3.jpeg'
+import Search from './search'
 
 const api = axios.create({
     baseURL: 'http://localhost:5000/api/products'
@@ -50,10 +51,16 @@ class home extends Component {
         }))
     }
     
-    addToCart(newID) {    
+    addToCart(newID, prodName) {    
+        
         this.updateLocalCart(newID)
             .then(res => {
-                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID});                
+                
+                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
+                    .then(res => {
+                        alert(prodName + " has been added to cart")
+                    })
+                         
             })
             .catch(err => console.error(err));
     }
@@ -73,7 +80,7 @@ class home extends Component {
         return (
             
 
-            <div className="grid-container">
+            <div className="grid-container"> <Search />
             <main className="main">
             <div class="carousel center">
                             <a class="carousel-item" href="http://localhost:3000/product/5f88bac602d2922a3c72c355"><img src={Banner1} /></a>
@@ -94,7 +101,7 @@ class home extends Component {
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
                                     <div className="product-rating">{product.avgRating} Stars ({product.comments.length} Reviews)</div>
-                                    <button onClick={this.addToCart.bind(this, product._id)} className="quantity-selector"> Add to Cart </button>
+                                    <button onClick={this.addToCart.bind(this, product._id, product.name)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )
                         }

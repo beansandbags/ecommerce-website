@@ -55,6 +55,7 @@ class cartScreen extends Component {
             .catch(err => console.error(err)); 
             this.checkOut = this.checkOut.bind(this);
             this.goHome = this.goHome.bind(this);
+            this.deleteFromCart = this.deleteFromCart.bind(this);
     }
 
     async calcTotalPrice() {
@@ -106,7 +107,31 @@ class cartScreen extends Component {
         e.preventDefault()
         window.location = '/'
     }
+
+    async localDelete() {
+        if(this.state.cartProductID.length == 1) {
+            var newCart = []
+            this.setState({cartProductID: newCart})
+        }
+        else {
+            var newCart = this.state.cartProductID.splice(this.state.cartProductID.length - 1, 1);
+            this.setState({cartProductID: newCart})
+        }
+
+    }
     
+    deleteFromCart(e) {
+        e.preventDefault()
+        this.localDelete()
+            .then(res => {
+                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
+                    .then(res => {
+                        alert("Deleted")
+                        window.location = '/cart'
+                    })
+            })
+
+    }
     
 
     render() {
@@ -128,7 +153,7 @@ class cartScreen extends Component {
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                         <div className="product-price">Rs {product.price}</div>
-                                        <button> Delete </button>
+                                        <button onClick = {this.deleteFromCart}> Delete </button>
                                 </div>
                             </li>
                         )
