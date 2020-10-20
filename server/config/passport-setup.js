@@ -14,6 +14,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
+/*
 passport.use(
     new FacebookStrategy({
         callbackURL: '/auth/facebook/redirect',
@@ -21,7 +22,7 @@ passport.use(
         clientSecret: keys.facebook.clientSecret
     }, (accessToken, refreshToken, profile, done) => {
         console.log(profile) 
-        /*User.findOne({facebookID: profile.id}).then((currentUser) => {
+        User.findOne({facebookID: profile.id}).then((currentUser) => {
             if(currentUser){
                 console.log('user is: ', currentUser)
                 done(null, currentUser);
@@ -38,8 +39,9 @@ passport.use(
             }
         })
     
-    */})
+    })
 )
+*/
 
 passport.use(
     new GoogleStrategy({

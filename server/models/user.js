@@ -1,26 +1,7 @@
 const mongoose  = require('mongoose');
-
+ 
 const Schema = mongoose.Schema;
-
-// https://medium.com/swlh/set-up-an-express-js-app-with-passport-js-and-mongodb-for-password-authentication-6ea05d95335c
-
-/*
-const ThirdPartyProviderSchema = new Schema({
-    provider_name: {
-        type: String,
-        default: null
-    },
-    provider_id: {
-        type: String,
-        default: null
-    },
-    provider_data: {
-        type: {},
-        default: null
-    }
-});
-*/
-
+ 
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -45,8 +26,8 @@ const UserSchema = new Schema({
         type: Number
     },
     address: {
-        type: [String],
-        required: true
+        type: String,
+        default: "1xx1",
     },
     
     //Cart Implementation 1
@@ -54,7 +35,7 @@ const UserSchema = new Schema({
         type: [String],
         default: []
     },
-
+ 
     wishlist: {
         type: [String],
         default: []
@@ -69,15 +50,6 @@ const UserSchema = new Schema({
         type: [String],
         default: []
     },
-    /*
-    third_party_auth: [ThirdPartyProviderSchema],
-    date: {
-        type: Date,
-        default: Date.now
-    }
-    */
-},
-//{ strict: false }
-);
-
+});
+ 
 module.exports = User = mongoose.model("user", UserSchema);

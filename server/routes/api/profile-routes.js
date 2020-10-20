@@ -14,14 +14,17 @@ router.get('/', authCheck, (req, res) => {
     res.json(req.user)
 })
 
-router.put('/:id', (req, res) => {
-    User.findByIdAndUpdate({_id: req.params.id}, req.body)
+router.get('/addressUpdate/:id/:addre', (req,res) => {
+    var addr = {
+        "address": req.params.addre
+    }
+    User.findByIdAndUpdate(req.params.id, addr)
         .then(user => {
-            res.json(user);
+            res.json(user)
+            res.redirect('http://localhost:3000')
         })
-        .catch(err => {
-            res.status(404).json({success: false})
-        });
-});
+        .catch(err => res.status(404).json({success: false}))
+})
+
   
 module.exports = router;
