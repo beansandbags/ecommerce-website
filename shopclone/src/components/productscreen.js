@@ -25,6 +25,7 @@ class ProductScreen extends Component {
         userID: null,
         currentUserName: null,
         currentUserPhoto: null,
+        transHistory: null,
     }
     constructor(props) {
         super();
@@ -35,14 +36,10 @@ class ProductScreen extends Component {
             .catch(err => console.error(err))
         userApi.get('/', config)
                 .then(res => {
-                    this.setState( {userID: res.data._id, currentUserName: res.data.name, currentUserPhoto: res.data.photo })
+                    this.setState( {userID: res.data._id, currentUserName: res.data.name, currentUserPhoto: res.data.photo, transHistory: res.data.transaction_h })
                 })
                 .catch(err => console.error(err))
-        this.publish1 = this.publish1.bind(this);
-        this.publish2 = this.publish2.bind(this);
-        this.publish3 = this.publish3.bind(this);
-        this.publish4 = this.publish4.bind(this);
-        this.publish5 = this.publish5.bind(this);      
+        this.publish = this.publish.bind(this);
         this.handleChange = this.handleChange.bind(this);   
     }
     
@@ -52,20 +49,33 @@ class ProductScreen extends Component {
         });
     }
  
-    publish1(e) {
+    publish(e, num) {
         e.preventDefault()
         var oldComments = this.state.product.comments
         var oldLength = oldComments.length
+        var didBuy = false;
+        if(this.state.transHistory.length > 0){
+            for(var i = 0; i < this.state.transHistory.length; i++){
+                for(var j = 0; j < this.state.transHistory[i].productID.length; j++){
+                    if(this.state.transHistory[i].productID[j] == this.state.product._id){
+                        didBuy = true;
+                    }
+                }
+            }
+        } else {
+            didBuy = false;
+        }
         var newComment = {
             userID: this.state.userID,
             userName: this.state.currentUserName,
             userPhoto: this.state.currentUserPhoto,
-            rating: 1,
+            rating: num,
             comment: this.state.comment,
-            date: Date.now
+            date: Date.now,
+            verified: didBuy
         }
         oldComments.push(newComment)
-        const newAvgRating = ((this.state.product.avgRating*oldLength)+1)/(oldLength+1)
+        const newAvgRating = ((this.state.product.avgRating*oldLength)+num)/(oldLength+1)
         var newReview = {
             avgRating: newAvgRating,
             comments: oldComments
@@ -77,113 +87,10 @@ class ProductScreen extends Component {
             })    
     }
     
-    publish2(e) {
-        e.preventDefault()
-        var oldComments = this.state.product.comments
-        var oldLength = oldComments.length
-        var newComment = {
-            userID: this.state.userID,
-            userName: this.state.currentUserName,
-            userPhoto: this.state.currentUserPhoto,
-            rating: 2,
-            comment: this.state.comment,
-            date: Date.now
-        }
-        oldComments.push(newComment)
-        const newAvgRating = ((this.state.product.avgRating*oldLength)+2)/(oldLength+1)
-        var newReview = {
-            avgRating: newAvgRating,
-            comments: oldComments
-        }
-        api.put('/' + this.state.product._id, newReview)
-            .then(res => {
-                alert("Review Submitted")
-                window.location = "/product/" + this.state.product._id
-            })    
-    }
     
-    publish3(e) {
-        e.preventDefault()
-        var oldComments = this.state.product.comments
-        var oldLength = oldComments.length
-        var newComment = {
-            userID: this.state.userID,
-            userName: this.state.currentUserName,
-            userPhoto: this.state.currentUserPhoto,
-            rating: 3,
-            comment: this.state.comment,
-            date: Date.now
-        }
-        oldComments.push(newComment)
-        const newAvgRating = ((this.state.product.avgRating*oldLength)+3)/(oldLength+1)
-        var newReview = {
-            avgRating: newAvgRating,
-            comments: oldComments
-        }
-        api.put('/' + this.state.product._id, newReview)
-            .then(res => {
-                alert("Review Submitted")
-                window.location = "/product/" + this.state.product._id
-            })    
-    }
-    
-    publish4(e) {
-        e.preventDefault()
-        var oldComments = this.state.product.comments
-        var oldLength = oldComments.length
-        //Figure out if product exists
-        var newComment = {
-            userID: this.state.userID,
-            userName: this.state.currentUserName,
-            userPhoto: this.state.currentUserPhoto,
-            rating: 4,
-            comment: this.state.comment,
-            date: Date.now
-            //verified: true
-        }
-        oldComments.push(newComment)
-        const newAvgRating = ((this.state.product.avgRating*oldLength)+4)/(oldLength+1)
-        var newReview = {
-            avgRating: newAvgRating,
-            comments: oldComments
-        }
-        api.put('/' + this.state.product._id, newReview)
-            .then(res => {
-                alert("Review Submitted")
-                window.location = "/product/" + this.state.product._id
-            })    
-    }
-    
-    publish5(e) {
-        e.preventDefault()
-        var oldComments = this.state.product.comments
-        var oldLength = oldComments.length
-        var newComment = {
-            userID: this.state.userID,
-            userName: this.state.currentUserName,
-            userPhoto: this.state.currentUserPhoto,
-            rating: 5,
-            comment: this.state.comment,
-            date: Date.now
-        }
-        oldComments.push(newComment)
-        const newAvgRating = ((this.state.product.avgRating*oldLength)+5)/(oldLength+1)
-        var newReview = {
-            avgRating: newAvgRating,
-            comments: oldComments
-        }
-        api.put('/' + this.state.product._id, newReview)
-            .then(res => {
-                alert("Review Submitted")
-                window.location = "/product/" + this.state.product._id
-            })    
-    }    
-    
-
-
     render() {
         if(this.state.product.features == null) return null;
-
+        var verifiedUserButton = <i className="material-icons" alt="Verified User">check</i>
         var existingReviews = 0;
         if(this.state.product.comments.length == 0){
             var existingReviews = "This Product has not been reviewed yet.";            
@@ -193,6 +100,7 @@ class ProductScreen extends Component {
                     <td><img src={review.userPhoto}/></td>
                     <table>
                         <tr>
+                            <td>{review.verified && verifiedUserButton}</td>
                             <td>{review.userName}</td>
                             <td>{review.rating} out of 5 stars</td>
                         </tr>
@@ -212,11 +120,11 @@ class ProductScreen extends Component {
             <input type="text" placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}></input>
             <p>Rating</p>
             
-            <button className="comment-rating" value="Send" onClick={this.publish1}>1</button>
-            <button className="comment-rating" value="Send" onClick={this.publish2}>2</button>
-            <button className="comment-rating" value="Send" onClick={this.publish3}>3</button>
-            <button className="comment-rating" value="Send" onClick={this.publish4}>4</button>
-            <button className="comment-rating" value="Send" onClick={this.publish5}>5</button>
+            <button className="comment-rating" value="1" onClick={(e) => this.publish(e, 1)}>1</button>
+            <button className="comment-rating" value="2" onClick={(e) => this.publish(e, 2)}>2</button>
+            <button className="comment-rating" value="3" onClick={(e) => this.publish(e, 3)}>3</button>
+            <button className="comment-rating" value="4" onClick={(e) => this.publish(e, 4)}>4</button>
+            <button className="comment-rating" value="5" onClick={(e) => this.publish(e, 5)}>5</button>
             
         </form></div>;
         if(userHasReviewed == 1){
