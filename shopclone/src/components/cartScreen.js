@@ -122,7 +122,7 @@ class cartScreen extends Component {
         var IDfound = 0;
         var idxToDelete = -1;
         for(var i = 0; i < this.state.cartProductID.length && !IDfound; i++) {
-            if(this.state.cartProductID[i] == prodID) {
+            if(this.state.cartProductID[i] === prodID) {
                 idxToDelete = i;
                 IDfound = 1;
             }

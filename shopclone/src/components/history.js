@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import data from '../data'
 import M from 'materialize-css'
 import './navbarstyle.css'
 import {Link} from 'react-router-dom'
