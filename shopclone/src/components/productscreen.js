@@ -58,6 +58,10 @@ class ProductScreen extends Component {
  
     publish(e, num) {
         e.preventDefault()
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {
         var oldComments = this.state.product.comments
         var oldLength = oldComments.length
         var didBuy = false;
@@ -92,6 +96,7 @@ class ProductScreen extends Component {
                 alert("Review Submitted")
                 window.location = "/product/" + this.state.product._id
             })    
+        }
     }
     
     async updateLocalCart(newID) {
