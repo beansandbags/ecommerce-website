@@ -39,7 +39,11 @@ class coffee extends Component {
         userApi.get('/', config)
             .then(res => {
                 this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id})     
-                
+                if(this.state.loggedInUser!= null){
+                    this.setState({userExists: true})
+                } else {
+                    this.setState({userExists: false})
+                }
             })
             .catch(err => console.error(err))
     }
@@ -52,7 +56,10 @@ class coffee extends Component {
     }
     
     addToCart(newID, prodName) {
-        
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {
         this.updateLocalCart(newID)
             .then(res => {
                 userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
@@ -61,7 +68,7 @@ class coffee extends Component {
                     })               
             })
             .catch(err => console.error(err));
-        
+        }
 
     }
 
@@ -98,7 +105,7 @@ class coffee extends Component {
                                     </div>
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
-                                    <div className="product-rating">{5} Stars ({5} Reviews)</div>
+                                    <div className="product-rating">{product.avgRating} Stars ({product.comments.length} Reviews)</div>
                                     <button onClick={this.addToCart.bind(this, product._id, product.name)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )

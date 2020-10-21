@@ -39,6 +39,11 @@ class ProductScreen extends Component {
         userApi.get('/', config)
                 .then(res => {
                     this.setState( {userID: res.data._id, currentUserName: res.data.name, currentUserPhoto: res.data.photo, transHistory: res.data.transaction_h, cartProductID: res.data.cart, wishlistProductID: res.data.wishlist })
+                    if(this.state.userID != null){
+                        this.setState({userExists: true})
+                    } else {
+                        this.setState({userExists: false})
+                    }
                 })
                 .catch(err => console.error(err))
         this.publish = this.publish.bind(this);
@@ -95,7 +100,11 @@ class ProductScreen extends Component {
         }))
     }
     
-    addToCart(newID, prodName) {    
+    addToCart(newID, prodName) {   
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {
         this.updateLocalCart(newID)
             .then(res => {
                 userApi.put('/' + this.state.userID, {cart: this.state.cartProductID})
@@ -105,6 +114,7 @@ class ProductScreen extends Component {
                     .catch(err => console.error(err));
             })
             .catch(err => console.error(err));
+        }
     }
 
     async updateLocalWishlist(newID) {
@@ -119,7 +129,10 @@ class ProductScreen extends Component {
     }
     
     addToWishlist(newID, prodName) {    
-        
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {
         this.updateLocalWishlist(newID)
             .then(res => {
                 
@@ -136,8 +149,8 @@ class ProductScreen extends Component {
                     })                             
             })
             .catch(err => console.error(err));
+        }
     }
-
     
 
     render() {

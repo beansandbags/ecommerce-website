@@ -92,7 +92,10 @@ class cartScreen extends Component {
     checkOut(e) {
         e.preventDefault()
         //var cartCopy = this.state.cartProductID;
-            
+        if(this.state.cartProductID.length === 0){
+            alert("Your Cart is Empty. Please Add Products to your Cart.")
+            window.location = "/"
+        }
         this.localCheckOut()
         .then(res => {
             userApi.put('/' + this.state.loggedInUser, {

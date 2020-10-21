@@ -40,7 +40,11 @@ class tea extends Component {
         userApi.get('/', config)
             .then(res => {
                 this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id})     
-                
+                if(this.state.loggedInUser!= null){
+                    this.setState({userExists: true})
+                } else {
+                    this.setState({userExists: false})
+                }
             })
             .catch(err => console.error(err))
     }
@@ -52,6 +56,10 @@ class tea extends Component {
     }
     
     addToCart(newID, prodName) {    
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {
         this.updateLocalCart(newID)
             .then(res => {
                 userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
@@ -60,8 +68,8 @@ class tea extends Component {
                     })                             
             })
             .catch(err => console.error(err));
+        }
     }
-
    componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');

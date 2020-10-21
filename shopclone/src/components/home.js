@@ -40,7 +40,11 @@ class home extends Component {
         userApi.get('/', config)
             .then(res => {
                 this.setState( {cartProductID: res.data.cart, loggedInUser: res.data._id})     
-                
+                if(this.state.loggedInUser != null){
+                    this.setState({userExists: true})
+                } else {
+                    this.setState({userExists: false})
+                }
             })
             .catch(err => console.error(err))
     }
@@ -51,7 +55,11 @@ class home extends Component {
         }))
     }
     
-    addToCart(newID, prodName) {    
+    addToCart(newID, prodName) {  
+        if(this.state.userExists === false){
+            alert("You are not logged in. Redirecting you to Login Page")
+            window.location = "http://localhost:5000/auth/google"
+        } else {  
         this.updateLocalCart(newID)
             .then(res => {
                 userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
@@ -60,6 +68,7 @@ class home extends Component {
                     })
             })
             .catch(err => console.error(err));
+       }
     }
 
    componentDidMount() {
@@ -75,8 +84,6 @@ class home extends Component {
 
     render() {
         return (
-            
-
             <div className="grid-container">
             <div className="grid-container"> <Search />        
             <main className="main">

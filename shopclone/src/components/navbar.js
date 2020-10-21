@@ -79,7 +79,7 @@ class navbar extends Component {
             </a></li>
         </ul>;
         } else {
-            var rightNavBar = <ul className='right'><a  href="/cart">
+            var rightNavBar = <ul className='right'><a  href="http://localhost:5000/auth/google">
                 <li>{cartNum.length}</li>
                 <li><i className="material-icons">shopping_cart</i></li>
             </a>  
