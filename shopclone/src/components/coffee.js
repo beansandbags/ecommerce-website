@@ -51,11 +51,14 @@ class coffee extends Component {
         }))
     }
     
-    addToCart(newID) {
+    addToCart(newID, prodName) {
         
         this.updateLocalCart(newID)
             .then(res => {
-                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID});                
+                userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
+                    .then(res => {
+                        alert(prodName + " has been added to cart")
+                    })               
             })
             .catch(err => console.error(err));
         
@@ -72,6 +75,7 @@ class coffee extends Component {
             });
           });
     }
+
 
    
     render() {
@@ -95,7 +99,7 @@ class coffee extends Component {
                                     <div className="product-brand">{product.brand}</div>
                                     <div className="product-price">Rs {product.price}</div>
                                     <div className="product-rating">{5} Stars ({5} Reviews)</div>
-                                    <button onClick={this.addToCart.bind(this, product._id)} className="quantity-selector"> Add to Cart </button>
+                                    <button onClick={this.addToCart.bind(this, product._id, product.name)} className="quantity-selector"> Add to Cart </button>
                                 </div></li>
                             )
                         }

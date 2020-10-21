@@ -39,6 +39,7 @@ class cartScreen extends Component {
                 
             })
             .then(res => {
+                
                 var i;
                 for(i = 0; i < this.state.cartProductID.length; i++) {
                     productApi.get('/' + this.state.cartProductID[i])
@@ -86,21 +87,29 @@ class cartScreen extends Component {
             .catch(err => console.error(err));   
     }
 
+
+
     checkOut(e) {
         e.preventDefault()
+        //var cartCopy = this.state.cartProductID;
+            
         this.localCheckOut()
-            .then(res => {
-                userApi.put('/' + this.state.loggedInUser, {
-                    transaction_h: this.state.curr_transaction_h,
-                    cart: this.state.cartProductID,
-                })
-                        .then(res => {
-                            alert("Purchase Successful")
-                            window.location = "/"
-                        })
-
+        .then(res => {
+            userApi.put('/' + this.state.loggedInUser, {
+                transaction_h: this.state.curr_transaction_h,
+                cart: this.state.cartProductID,
             })
-            .catch(err => console.error(err))
+                .then(res => {
+                    alert("Purchase Successful")
+                    
+                })
+
+        })
+        .catch(err => console.error(err))
+
+            
+
+        
 
     }
 
@@ -109,26 +118,31 @@ class cartScreen extends Component {
         window.location = '/'
     }
 
-    async localDelete() {
-        if(this.state.cartProductID.length == 1) {
-            var newCart = []
-            this.setState({cartProductID: newCart})
+    async localDelete(prodID) {
+        var IDfound = 0;
+        var idxToDelete = -1;
+        for(var i = 0; i < this.state.cartProductID.length && !IDfound; i++) {
+            if(this.state.cartProductID[i] == prodID) {
+                idxToDelete = i;
+                IDfound = 1;
+            }
         }
-        else {
-            var newCart = this.state.cartProductID.splice(this.state.cartProductID.length - 1, 1);
-            this.setState({cartProductID: newCart})
-        }
+        if(IDfound)
+            this.state.cartProductID.splice(idxToDelete, 1);
+        else 
+            alert("ERROR ENCOUNTERED!")
 
     }
 
 
-    deleteFromCart(e) {
+    deleteFromCart(prodID, prodName, e) {
+        
         e.preventDefault()
-        this.localDelete()
+        this.localDelete(prodID)
             .then(res => {
                 userApi.put('/' + this.state.loggedInUser, {cart: this.state.cartProductID})
                     .then(res => {
-                        alert("Deleted")
+                        alert(prodName + " has been removed from cart")
                         window.location = '/cart'
                     })
             })
@@ -156,7 +170,7 @@ class cartScreen extends Component {
                                         <Link to={'/product/' + product._id}>{product.name}</Link>
                                     </div>
                                         <div className="product-price">Rs {product.price}</div>
-                                        <button onClick = {this.deleteFromCart}> Delete </button>
+                                        <button onClick = {this.deleteFromCart.bind(this, product._id, product.name)}> Delete </button>
                                 </div>
                             </li>
                         )
