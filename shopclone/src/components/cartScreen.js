@@ -101,6 +101,7 @@ class cartScreen extends Component {
             })
                 .then(res => {
                     alert("Purchase Successful")
+                    window.location = '/'
                     
                 })
 

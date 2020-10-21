@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './navbarstyle.css'
+import logoArt from '../shopclone.png'
 
 class footer extends Component {
 
@@ -10,9 +11,9 @@ class footer extends Component {
             <div className="display-container">
               <div className="row">
                 <div className="col l6 s12">
-                  <h5 className="white-text">BeansAndBags</h5>
-                  <p className="grey-text text-lighten-4">A website to help you buy the perfect chocolate to compliment your drink! 
-                  So, what are you waiting for? Get yourself some to keep you company during exam nights now!</p>
+                    <a href = '/'> <img className= "footer-logo" src={logoArt} /> </a>
+                  <p className="grey-text text-lighten-4">Most people can't get through their day without a cup of tea or coffee. So why should you?
+                   Get yourself some to keep you company during exam nights now!</p>
                 </div>
                 <div className="col l4 offset-l2 s12">
                   <ul>

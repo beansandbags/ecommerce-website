@@ -209,13 +209,14 @@ body{
     padding: 7px;
     /*margin-left: auto;*/
     margin-right: auto;
-    margin-left: 40%;
+    margin-left: 38%;
     color: white;
     background-color:Firebrick;
     border: .1rem black solid;
     border-radius: .4rem;
     cursor: pointer;
     width: 120px;
+    font-family: nexa-bold;
 }
  
 .join1 {
@@ -235,8 +236,10 @@ body{
 }
  
 .cart-items {
-    margin-left: 5%;
+    margin-left: 1%;
     margin-top: 25px;
+    font-family: nexa-bold;
+    text-align: center;
 }
  
 .cart-details {
@@ -432,4 +435,13 @@ hr {
 
 .search-icon-home input {
     text-indent: 40px;
+}
+
+.product-title {
+    font-family: nexa-bold;
+}
+
+.footer-logo {
+    width: 260px;
+
 }

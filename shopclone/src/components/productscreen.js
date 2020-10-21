@@ -193,8 +193,14 @@ class ProductScreen extends Component {
                         </td>
                         <table className="iproducts-info"> 
                             <tr>
-                                <h4>{this.state.product.name}</h4>
+                                <h4 className= "product-title"> {this.state.product.name}</h4>
+                                
                             </tr>
+                            <tr>
+
+                                <div className="product-title">{this.state.product.brand}</div>
+                            </tr>
+
                             <tr>
                                 {this.state.product.avgRating} Stars ({this.state.product.comments.length} Reviews)
                             </tr>
@@ -203,17 +209,18 @@ class ProductScreen extends Component {
                                <button onClick={this.addToCart.bind(this, this.state.product._id, this.state.product.name)} className="quantity-selector"> Add to Cart </button>
                                <button onClick={this.addToWishlist.bind(this, this.state.product._id, this.state.product.name)} className="quantity-selector"> Add to Wishlist </button>
                                 </tr>
+                            <tr> {this.state.product.wishlist} customer(s) are interested in this product.</tr>
                             </table>
                     </table>
                 </div>
                 <div className="details-description">
-                    <li> <h4>Description:</h4> 
+                    <li> <h4 className = "product-title">Description:</h4> 
                         <div>{this.state.product.features.map(features => 
                             <p>{features}</p>
                             )}</div>
                     </li>
                     <li>
-                        <h4>Comments and Reviews</h4>
+                        <h4 className = "product-title">Comments and Reviews</h4>
                         <form className="comments">
                         {existingReviews}
                         </form>
